@@ -14,7 +14,7 @@
         
         <ul>
             <c:forEach var="tour" items="${tour}">
-            <li>${tour.nameTour}</li>
+                <li>${tour.nameTour}</li>
             </c:forEach>
         </ul>
     </body>

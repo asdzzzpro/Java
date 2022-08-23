@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 /**
  *
  * @author Qhuy
@@ -26,7 +27,6 @@ public class TourRepositoryImpl implements TourRepository {
     private LocalSessionFactoryBean sessionFactory;
 
     @Override
-    
     public List<Tour> getTour() {
         Session s = sessionFactory.getObject().openSession();
         Query q = s.createNamedQuery("From Tour");
