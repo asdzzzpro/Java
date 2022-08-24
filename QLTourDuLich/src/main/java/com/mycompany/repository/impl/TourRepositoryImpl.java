@@ -22,13 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class TourRepositoryImpl implements TourRepository {
-
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
-
     @Override
     public List<Tour> getTour() {
-        Session s = sessionFactory.getObject().openSession();
+        Session s = sessionFactory.getObject().getCurrentSession();
         Query q = s.createNamedQuery("From Tour");
         return q.getResultList();
     }
