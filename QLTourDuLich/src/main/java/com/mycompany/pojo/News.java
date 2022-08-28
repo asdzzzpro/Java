@@ -5,8 +5,8 @@
 package com.mycompany.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -68,7 +68,7 @@ public class News implements Serializable {
     @Column(name = "source")
     private String source;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "newsId")
-    private Set<Newscomment> newscommentSet;
+    private Collection<Newscomment> newscommentCollection;
 
     public News() {
     }
@@ -132,12 +132,12 @@ public class News implements Serializable {
     }
 
     @XmlTransient
-    public Set<Newscomment> getNewscommentSet() {
-        return newscommentSet;
+    public Collection<Newscomment> getNewscommentCollection() {
+        return newscommentCollection;
     }
 
-    public void setNewscommentSet(Set<Newscomment> newscommentSet) {
-        this.newscommentSet = newscommentSet;
+    public void setNewscommentCollection(Collection<Newscomment> newscommentCollection) {
+        this.newscommentCollection = newscommentCollection;
     }
 
     @Override

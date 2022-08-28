@@ -8,6 +8,7 @@ package com.mycompany.configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,22 +22,24 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
+@EnableTransactionManagement
 @ComponentScan(basePackages = {
         "com.mycompany.controllers",
         "com.mycompany.repository",
-        "com.mycompany.service"})
+        "com.mycompany.service"
+        })
 public class WebAppContextConfig implements WebMvcConfigurer{
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer conf) {
         conf.enable();
     }
     
-    @Bean
-    public InternalResourceViewResolver geInternalResourceViewResolver(){
-        InternalResourceViewResolver resource = new InternalResourceViewResolver();
-        resource.setViewClass(JstlView.class);
-        resource.setSuffix(".jsp");
-        resource.setPrefix(("/WEB-INF/jsp/"));
-        return resource;
-    }
+//    @Bean
+//    public InternalResourceViewResolver geInternalResourceViewResolver(){
+//        InternalResourceViewResolver resource = new InternalResourceViewResolver();
+//        resource.setViewClass(JstlView.class);
+//        resource.setSuffix(".jsp");
+//        resource.setPrefix(("/WEB-INF/jsp/"));
+//        return resource;
+//    }
 }

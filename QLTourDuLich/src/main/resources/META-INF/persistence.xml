@@ -11,6 +11,7 @@
     <class>com.mycompany.pojo.Payment</class>
     <class>com.mycompany.pojo.Tourcomment</class>
     <class>com.mycompany.pojo.Receipt</class>
+    <class>com.mycompany.pojo.Type</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/toursv?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

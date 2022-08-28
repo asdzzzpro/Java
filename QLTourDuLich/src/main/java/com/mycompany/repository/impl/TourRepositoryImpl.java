@@ -7,28 +7,68 @@ package com.mycompany.repository.impl;
 import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
 import java.util.List;
-import javax.persistence.Query;
+import java.util.Map;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 /**
  *
  * @author Qhuy
  */
 @Repository
+//@PropertySource("classpath:databases.properties")
 @Transactional
 public class TourRepositoryImpl implements TourRepository {
+
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+
     @Override
-    public List<Tour> getTour() {
-        Session s = sessionFactory.getObject().getCurrentSession();
-        Query q = s.createNamedQuery("From Tour");
-        return q.getResultList();
+    public List<Tour> getTours(Map<String, String> params, int i) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder cr = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> cq = cr.createQuery(Tour.class);
+        Root root = cq.from(Tour.class);
+        cq.select(root);
+        Query query = session.createQuery(cq);
+        
+        return query.getResultList();
     }
-    
+
+    @Override
+    public boolean addTour(Tour t) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+
+        try {
+            session.save(t);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
+    }
+
+    @Override
+    public boolean delTour(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+
+        try {
+            Tour t = session.get(Tour.class, id);
+            session.delete(t);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
 }

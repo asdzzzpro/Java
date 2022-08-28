@@ -1,21 +1,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
-    </head>
 
-    <body>
-        <h1>Admin</h1>
-        
-        <ul>
-            <c:forEach var="tour" items="${tour}">
-                <li>${tour.nameTour}</li>
-            </c:forEach>
-        </ul>
-    </body>
-</html>
+
+<div class="row">
+    <c:forEach items="${tour}" var="t">
+        <div class="col-md-3 col-xs-10" style="padding: 5px;">
+            <div class="card">
+                <img class="card-img-top" class="img-fluid" src="https://res.cloudinary.com/dxxwcby8l/image/upload/v1647248722/r8sjly3st7estapvj19u.jpg" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">${t.nameTour}</h4>
+                    <p class="card-text">
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND
+                    </p>
+                    <p class="card-text">
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.childprice}" /> VND
+                    </p>
+                    <a href="<c:url value="/products/${t.idTour}" />" class="btn btn-primary">Xem chi tiet</a>
+                </div>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
+

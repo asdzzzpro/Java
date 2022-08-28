@@ -30,8 +30,11 @@ public class HibernateConfig {
 
     @Bean
     public LocalSessionFactoryBean getSessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setPackagesToScan(new String[]{"com.mycompany.pojo"});
+        LocalSessionFactoryBean sessionFactory
+                = new LocalSessionFactoryBean();
+        sessionFactory.setPackagesToScan(new String[]{
+            "com.mycompany.pojo"
+        });
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
@@ -39,26 +42,32 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource= new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("hibernate.connection.driverClass"));
+        DriverManagerDataSource dataSource
+                = new DriverManagerDataSource();
+        dataSource.setDriverClassName(
+                env.getProperty("hibernate.connection.driverClass"));
         dataSource.setUrl(env.getProperty("hibernate.connection.url"));
-        dataSource.setUsername(env.getProperty("hibernate.connection.username"));
-        dataSource.setPassword(env.getProperty("hibernate.connection.password"));
+        dataSource.setUsername(
+                env.getProperty("hibernate.connection.username"));
+        dataSource.setPassword(
+                env.getProperty("hibernate.connection.password"));
         return dataSource;
     }
-    
+
     private Properties hibernateProperties() {
-        Properties properties = new Properties();
-        properties.put(DIALECT, env.getProperty("hibernate.dialect"));
-        properties.put(SHOW_SQL, env.getProperty("hibernate.showSql"));
-        return properties;
-    }
-    
-    @Bean
-    public HibernateTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(getSessionFactory().getObject());
-        return transactionManager;
+        Properties props = new Properties();
+        props.put(DIALECT, env.getProperty("hibernate.dialect"));
+        props.put(SHOW_SQL, env.getProperty("hibernate.showSql"));
+        return props;
     }
 
+    @Bean
+    public HibernateTransactionManager transactionManager() {
+        HibernateTransactionManager transactionManager
+                = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(
+                getSessionFactory().getObject());
+        return transactionManager;
+    }
 }
+

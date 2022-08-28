@@ -5,8 +5,8 @@
 package com.mycompany.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -65,9 +67,12 @@ public class Tour implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId")
-    private Set<OrderDetail> orderDetailSet;
+    private Collection<OrderDetail> orderDetailCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId")
-    private Set<Tourcomment> tourcommentSet;
+    private Collection<Tourcomment> tourcommentCollection;
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Type typeId;
 
     public Tour() {
     }
@@ -133,21 +138,29 @@ public class Tour implements Serializable {
     }
 
     @XmlTransient
-    public Set<OrderDetail> getOrderDetailSet() {
-        return orderDetailSet;
+    public Collection<OrderDetail> getOrderDetailCollection() {
+        return orderDetailCollection;
     }
 
-    public void setOrderDetailSet(Set<OrderDetail> orderDetailSet) {
-        this.orderDetailSet = orderDetailSet;
+    public void setOrderDetailCollection(Collection<OrderDetail> orderDetailCollection) {
+        this.orderDetailCollection = orderDetailCollection;
     }
 
     @XmlTransient
-    public Set<Tourcomment> getTourcommentSet() {
-        return tourcommentSet;
+    public Collection<Tourcomment> getTourcommentCollection() {
+        return tourcommentCollection;
     }
 
-    public void setTourcommentSet(Set<Tourcomment> tourcommentSet) {
-        this.tourcommentSet = tourcommentSet;
+    public void setTourcommentCollection(Collection<Tourcomment> tourcommentCollection) {
+        this.tourcommentCollection = tourcommentCollection;
+    }
+
+    public Type getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Type typeId) {
+        this.typeId = typeId;
     }
 
     @Override

@@ -5,8 +5,8 @@
 package com.mycompany.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,9 +51,9 @@ public class Order1 implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createddate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
-    private Set<Receipt> receiptSet;
+    private Collection<Receipt> receiptCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
-    private Set<OrderDetail> orderDetailSet;
+    private Collection<OrderDetail> orderDetailCollection;
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     @ManyToOne
     private User userId;
@@ -90,21 +90,21 @@ public class Order1 implements Serializable {
     }
 
     @XmlTransient
-    public Set<Receipt> getReceiptSet() {
-        return receiptSet;
+    public Collection<Receipt> getReceiptCollection() {
+        return receiptCollection;
     }
 
-    public void setReceiptSet(Set<Receipt> receiptSet) {
-        this.receiptSet = receiptSet;
+    public void setReceiptCollection(Collection<Receipt> receiptCollection) {
+        this.receiptCollection = receiptCollection;
     }
 
     @XmlTransient
-    public Set<OrderDetail> getOrderDetailSet() {
-        return orderDetailSet;
+    public Collection<OrderDetail> getOrderDetailCollection() {
+        return orderDetailCollection;
     }
 
-    public void setOrderDetailSet(Set<OrderDetail> orderDetailSet) {
-        this.orderDetailSet = orderDetailSet;
+    public void setOrderDetailCollection(Collection<OrderDetail> orderDetailCollection) {
+        this.orderDetailCollection = orderDetailCollection;
     }
 
     public User getUserId() {

@@ -4,16 +4,13 @@
  */
 package com.mycompany.repository;
 
-import com.mycompany.pojo.Tour;
+import com.mycompany.pojo.Type;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
  * @author Qhuy
  */
-public interface TourRepository {
-    List<Tour> getTours(Map<String, String> params, int page);
-    boolean addTour(Tour t);
-    boolean delTour(int id);
+public interface TypeRepository {
+    List<Type> getTypes();
 }

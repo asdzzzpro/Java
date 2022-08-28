@@ -8,6 +8,7 @@ import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
 import com.mycompany.service.TourService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,19 @@ public class TourServiceImpl implements TourService{
     private TourRepository tourRepository;
     
     @Override
-    public List<Tour> getTour() {
-        return this.tourRepository.getTour();
+    public List<Tour> getTours(Map<String, String> params, int page) {
+        return this.tourRepository.getTours(params, page);
+    }
+
+    @Override
+    public boolean addTour(Tour t) {
+        t.setImage("https://res.cloudinary.com/dxxwcby8l/image/upload/v1647248652/dkeolz3ghc0eino87iec.jpg");
+        return this.tourRepository.addTour(t);
+    }
+
+    @Override
+    public boolean delTour(int i) {
+        return this.tourRepository.delTour(i);
     }
     
 }

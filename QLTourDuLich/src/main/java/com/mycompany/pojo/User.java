@@ -5,7 +5,7 @@
 package com.mycompany.pojo;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,7 +40,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
     @NamedQuery(name = "User.findByUserrole", query = "SELECT u FROM User u WHERE u.userrole = :userrole")})
 public class User implements Serializable {
-
+    
+    private static final String ADMIN = "ROLE_ADMIN";
+    private static final String USER = "ROLE_USER";
+    private static final String CUSTOMER = "ROLE_CUSTOMER";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,13 +89,13 @@ public class User implements Serializable {
     @Column(name = "userrole")
     private String userrole;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private Set<Newscomment> newscommentSet;
+    private Collection<Newscomment> newscommentCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private Set<Receipt> receiptSet;
+    private Collection<Receipt> receiptCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private Set<Tourcomment> tourcommentSet;
+    private Collection<Tourcomment> tourcommentCollection;
     @OneToMany(mappedBy = "userId")
-    private Set<Order1> order1Set;
+    private Collection<Order1> order1Collection;
 
     public User() {
     }
@@ -176,39 +180,39 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Set<Newscomment> getNewscommentSet() {
-        return newscommentSet;
+    public Collection<Newscomment> getNewscommentCollection() {
+        return newscommentCollection;
     }
 
-    public void setNewscommentSet(Set<Newscomment> newscommentSet) {
-        this.newscommentSet = newscommentSet;
-    }
-
-    @XmlTransient
-    public Set<Receipt> getReceiptSet() {
-        return receiptSet;
-    }
-
-    public void setReceiptSet(Set<Receipt> receiptSet) {
-        this.receiptSet = receiptSet;
+    public void setNewscommentCollection(Collection<Newscomment> newscommentCollection) {
+        this.newscommentCollection = newscommentCollection;
     }
 
     @XmlTransient
-    public Set<Tourcomment> getTourcommentSet() {
-        return tourcommentSet;
+    public Collection<Receipt> getReceiptCollection() {
+        return receiptCollection;
     }
 
-    public void setTourcommentSet(Set<Tourcomment> tourcommentSet) {
-        this.tourcommentSet = tourcommentSet;
+    public void setReceiptCollection(Collection<Receipt> receiptCollection) {
+        this.receiptCollection = receiptCollection;
     }
 
     @XmlTransient
-    public Set<Order1> getOrder1Set() {
-        return order1Set;
+    public Collection<Tourcomment> getTourcommentCollection() {
+        return tourcommentCollection;
     }
 
-    public void setOrder1Set(Set<Order1> order1Set) {
-        this.order1Set = order1Set;
+    public void setTourcommentCollection(Collection<Tourcomment> tourcommentCollection) {
+        this.tourcommentCollection = tourcommentCollection;
+    }
+
+    @XmlTransient
+    public Collection<Order1> getOrder1Collection() {
+        return order1Collection;
+    }
+
+    public void setOrder1Collection(Collection<Order1> order1Collection) {
+        this.order1Collection = order1Collection;
     }
 
     @Override
