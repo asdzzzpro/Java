@@ -40,7 +40,8 @@ public class AdminController {
     public String index(Model model,  @RequestParam(required = false) Map<String, String> params){
 //        int page = Integer.parseInt(params.getOrDefault("page", "1"));
 //        model.addAttribute("type", this.typeService.getTypes());
-        model.addAttribute("tour", this.tourService.getTours(params, 1));
+        
+        model.addAttribute("tour", this.tourService.getTours(params, 0));
         return "index";
     }
 }

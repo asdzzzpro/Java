@@ -6,10 +6,12 @@ package com.mycompany.repository.impl;
 
 import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -38,6 +40,37 @@ public class TourRepositoryImpl implements TourRepository {
         CriteriaQuery<Tour> cq = cr.createQuery(Tour.class);
         Root root = cq.from(Tour.class);
         cq.select(root);
+        
+        if (params != null) {
+            List<Predicate> predicates = new ArrayList<>();
+            String kw = params.get("kw");
+            if (kw != null && !kw.isEmpty()) {
+                Predicate p = cr.like(root.get("nameTour").as(String.class), String.format("%%%s%%", kw));
+                predicates.add(p);
+            }
+            
+            String fp = params.get("childPrice");
+            if (fp != null) {
+                Predicate p = cr.greaterThanOrEqualTo(root.get("childprice").as(Long.class), Long.parseLong(fp));
+                predicates.add(p);
+            }
+
+            String tp = params.get("adultPrice");
+            if (tp != null) {
+                Predicate p = cr.lessThanOrEqualTo(root.get("adultprice").as(Long.class), Long.parseLong(tp));
+                predicates.add(p);
+            }
+
+            String typeId = params.get("typeId");
+            if (typeId != null) {
+                Predicate p = cr.equal(root.get("idTour"), Integer.parseInt(typeId));
+                predicates.add(p);
+            }
+           
+
+            cq.where(predicates.toArray(new Predicate[]{}));
+        }
+        
         Query query = session.createQuery(cq);
         
         return query.getResultList();
@@ -70,5 +103,12 @@ public class TourRepositoryImpl implements TourRepository {
             return false;
         }
     }
+
+    @Override
+    public Tour getTourById(int i) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Tour.class, i);
+    }
+    
 
 }

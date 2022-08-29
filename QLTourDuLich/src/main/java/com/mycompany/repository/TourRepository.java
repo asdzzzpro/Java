@@ -16,4 +16,5 @@ public interface TourRepository {
     List<Tour> getTours(Map<String, String> params, int page);
     boolean addTour(Tour t);
     boolean delTour(int id);
+    Tour getTourById(int id);
 }

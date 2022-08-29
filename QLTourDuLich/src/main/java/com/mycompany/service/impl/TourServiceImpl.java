@@ -36,5 +36,10 @@ public class TourServiceImpl implements TourService{
     public boolean delTour(int i) {
         return this.tourRepository.delTour(i);
     }
+
+    @Override
+    public Tour getTourById(int i) {
+        return this.tourRepository.getTourById(i);
+    }
     
 }

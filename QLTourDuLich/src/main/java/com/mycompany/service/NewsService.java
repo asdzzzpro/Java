@@ -4,7 +4,7 @@
  */
 package com.mycompany.service;
 
-import com.mycompany.pojo.Tour;
+import com.mycompany.pojo.News;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +12,7 @@ import java.util.Map;
  *
  * @author Qhuy
  */
-public interface TourService {
-    List<Tour> getTours(Map<String, String> params, int page);
-    boolean addTour(Tour t);
-    boolean delTour(int id);
-    Tour getTourById(int id);
+public interface NewsService {
+    List<News> getNewses(Map<String, String> params, int page);
+
 }
