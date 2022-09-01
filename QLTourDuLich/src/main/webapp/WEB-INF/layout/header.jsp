@@ -27,6 +27,9 @@
                         <a class="nav-link" href="${tUrl}">${t.name}</a>
                     </li>
                 </c:forEach>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/login"/>">Dang Nhap</a>
+                </li>
 
             </ul>
 

@@ -5,12 +5,12 @@
 package com.mycompany.repository.impl;
 
 import com.mycompany.pojo.News;
-
-import com.mycompany.repository.NewsRepository;
+import com.mycompany.pojo.User;
+import com.mycompany.repository.UserRepository;
 import java.util.List;
-import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -25,20 +25,29 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class NewsRepositoryImpl implements NewsRepository{
-
+public class UserRepositoryImpl implements UserRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
     
     @Override
-    public List<News> getNewses(Map<String, String> params, int page) {
+    public boolean addUser(User user) {
+        return false;
+    }
+
+    @Override
+    public List<User> getUsers(String username) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder cr = session.getCriteriaBuilder();
-        CriteriaQuery<News> cq = cr.createQuery(News.class);
-        Root root = cq.from(News.class);
+        CriteriaQuery<User> cq = cr.createQuery(User.class);
+        Root root = cq.from(User.class);
         cq.select(root);
-        Query query = session.createQuery(cq);
         
+        if(!username.isEmpty()){
+            Predicate p = cr.equal(root.get("username").as(String.class), username.trim());
+            cq = cq.where(p);
+        }
+        
+        Query query = session.createQuery(cq);
         return query.getResultList();
     }
     

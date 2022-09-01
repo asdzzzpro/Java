@@ -24,6 +24,6 @@ public class NewsServiceImpl implements NewsService{
     @Override
     public List<News> getNewses(Map<String, String> params, int page) {
         return this.newsRepository.getNewses(params, page);
-    }
+    }   
     
 }

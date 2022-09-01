@@ -6,6 +6,7 @@
 package com.mycompany.controllers;
 
 //import com.mycompany.service.TourService;
+import com.mycompany.service.NewsService;
 import com.mycompany.service.TourService;
 import com.mycompany.service.TypeService;
 import java.util.Map;
@@ -31,6 +32,9 @@ public class AdminController {
     private TourService tourService;
     @Autowired
     private TypeService typeService;
+    @Autowired
+    private NewsService newsService;
+    
     
     @ModelAttribute
     public void commonAttr(Model model){
@@ -40,7 +44,7 @@ public class AdminController {
     public String index(Model model,  @RequestParam(required = false) Map<String, String> params){
 //        int page = Integer.parseInt(params.getOrDefault("page", "1"));
 //        model.addAttribute("type", this.typeService.getTypes());
-        
+        model.addAttribute("news", this.newsService.getNewses(params, 0));
         model.addAttribute("tour", this.tourService.getTours(params, 0));
         return "index";
     }
