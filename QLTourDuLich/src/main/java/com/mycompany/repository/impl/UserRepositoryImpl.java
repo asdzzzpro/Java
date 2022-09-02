@@ -4,7 +4,6 @@
  */
 package com.mycompany.repository.impl;
 
-import com.mycompany.pojo.News;
 import com.mycompany.pojo.User;
 import com.mycompany.repository.UserRepository;
 import java.util.List;
@@ -12,6 +11,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,13 @@ public class UserRepositoryImpl implements UserRepository{
     
     @Override
     public boolean addUser(User user) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(user);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println(e.getMessage());
+        }
         return false;
     }
 

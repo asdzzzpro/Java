@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -40,10 +41,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
     @NamedQuery(name = "User.findByUserrole", query = "SELECT u FROM User u WHERE u.userrole = :userrole")})
 public class User implements Serializable {
-    
-    private static final String ADMIN = "ROLE_ADMIN";
-    private static final String USER = "ROLE_USER";
-    private static final String CUSTOMER = "ROLE_CUSTOMER";
+
+    public static final String ADMIN = "ROLE_ADMIN";
+    public static final String USER = "ROLE_USER";
+    public static final String CUSTOMER = "ROLE_CUSTOMER";
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -88,6 +89,8 @@ public class User implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "userrole")
     private String userrole;
+    @Transient
+    private String confirmPassword;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Newscomment> newscommentCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -240,6 +243,18 @@ public class User implements Serializable {
         return "com.mycompany.pojo.User[ idUser=" + idUser + " ]";
     }
 
-    
+    /**
+     * @return the confirmPassword
+     */
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    /**
+     * @param confirmPassword the confirmPassword to set
+     */
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
     
 }
