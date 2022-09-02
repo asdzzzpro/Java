@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
     @NamedQuery(name = "User.findByUserrole", query = "SELECT u FROM User u WHERE u.userrole = :userrole")})
 public class User implements Serializable {
-
+    
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String USER = "ROLE_USER";
     public static final String CUSTOMER = "ROLE_CUSTOMER";
@@ -256,5 +256,9 @@ public class User implements Serializable {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    
+
+    
     
 }

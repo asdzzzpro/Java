@@ -27,10 +27,9 @@
                         <a class="nav-link" href="${tUrl}">${t.name}</a>
                     </li>
                 </c:forEach>
-
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/login"/>">&#9969; Dang nhap</a>
+                        <a class="nav-link" href="<c:url value="/login"/>">&#9968; Dang nhap</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/register"/>">Dang ky</a>
@@ -45,7 +44,6 @@
                         <a class="nav-link" href="<c:url value="/logout"/>">${pageContext.request.userPrincipal.name}</a>
                     </li>
                 </c:if>
-
 
             </ul>
 

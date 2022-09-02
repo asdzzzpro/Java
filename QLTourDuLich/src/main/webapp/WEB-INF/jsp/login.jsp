@@ -1,13 +1,11 @@
 <%-- 
-    Document   : login.jsp
-    Created on : Sep 2, 2022, 2:21:17 PM
+    Document   : login
+    Created on : Sep 1, 2022, 10:02:36 PM
     Author     : Qhuy
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<h1>DANG NHAP</h1>
 
 <c:if test="${param.error != null}">
     <div class="alert alert-danger">
@@ -20,12 +18,12 @@
 
 <form method="post" action="${action}">
     <div class="form-group">
-        <label>Ten dang nhap</label>
+        <label for="username">Ten dang nhap</label>
         <input type="text" id="username" name="username" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Mat khau</label>
-        <input type="text" id="pasword" name="pasword" class="form-control"/>
+        <label for="password">Mat khau</label>
+        <input type="password" id="password" name="password" class="form-control"/>
     </div>
     <div class="form-group">
         <input type="submit" value="Dang nhap" class="btn btn-danger"/>

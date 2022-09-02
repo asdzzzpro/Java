@@ -4,6 +4,7 @@
  */
 package com.mycompany.repository.impl;
 
+import com.mycompany.pojo.News;
 import com.mycompany.pojo.User;
 import com.mycompany.repository.UserRepository;
 import java.util.List;

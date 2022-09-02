@@ -1,8 +1,9 @@
 <%-- 
     Document   : register
-    Created on : Sep 2, 2022, 4:10:01 PM
+    Created on : Sep 2, 2022, 9:07:34 PM
     Author     : Qhuy
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
