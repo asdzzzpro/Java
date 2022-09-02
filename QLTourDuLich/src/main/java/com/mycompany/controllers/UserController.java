@@ -33,7 +33,7 @@ public class UserController {
         return "register";
     }
     @PostMapping("/register")
-    public String register(@ModelAttribute(value = "user") User user, Model model){
+    public String register(Model model, @ModelAttribute(value = "user") User user){
         String msg = "";
         if(user.getPassword().equals(user.getConfirmPassword())){
             if(this.userDetailsService.addUser(user)==true){

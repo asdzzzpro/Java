@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">&#9969; Trang chu</a>
+                    <a class="nav-link" href="<c:url value="/"/>">&#9969; Trang chu</a>
                 </li>
                 <c:forEach items="${type}" var="t">
                     <c:url value="/" var="tUrl">
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="<c:url value="/"/>">${pageContext.request.userPrincipal.name}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/logout"/>">${pageContext.request.userPrincipal.name}</a>
+                        <a class="nav-link" href="<c:url value="/logout"/>">Logout</a>
                     </li>
                 </c:if>
 
