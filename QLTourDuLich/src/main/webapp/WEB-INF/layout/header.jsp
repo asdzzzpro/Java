@@ -44,7 +44,9 @@
                         <a class="nav-link" href="<c:url value="/logout"/>">Logout</a>
                     </li>
                 </c:if>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/add"/>">Quan ly Tour</a>
+                    </li>
             </ul>
 
 

@@ -14,6 +14,10 @@
     
 </c:if>
 
+<c:if test="${param.acessDenied}">
+    <p>Ban khong co quyen truy cap</p>
+</c:if>
+
 <c:url value="/login" var="action"/>
 
 <form method="post" action="${action}">

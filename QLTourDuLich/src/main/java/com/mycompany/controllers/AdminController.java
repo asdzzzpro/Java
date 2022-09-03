@@ -6,6 +6,7 @@
 package com.mycompany.controllers;
 
 //import com.mycompany.service.TourService;
+import com.mycompany.pojo.Tour;
 import com.mycompany.service.NewsService;
 import com.mycompany.service.TourService;
 import com.mycompany.service.TypeService;
@@ -17,7 +18,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -48,4 +51,6 @@ public class AdminController {
         model.addAttribute("tour", this.tourService.getTours(params, 0));
         return "index";
     }
+    
+    
 }

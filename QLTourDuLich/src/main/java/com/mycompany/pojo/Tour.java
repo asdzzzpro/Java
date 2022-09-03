@@ -50,17 +50,17 @@ public class Tour implements Serializable {
     @Basic(optional = false)
     @Column(name = "idTour")
     private Integer idTour;
-    @Size(max = 45)
+    @Size(max = 255)
     @Column(name = "nameTour")
     private String nameTour;
-    @Size(max = 45)
+    @Size(max = 1000)
     @Column(name = "description")
     private String description;
     @Column(name = "childprice")
     private Long childprice;
     @Column(name = "adultprice")
     private Long adultprice;
-    @Size(max = 45)
+    @Size(max = 100)
     @Column(name = "image")
     private String image;
     @Column(name = "time")

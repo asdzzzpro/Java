@@ -53,12 +53,12 @@ public class News implements Serializable {
     private Date createdDate;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 300)
     @Column(name = "title")
     private String title;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 1, max = 4000)
     @Column(name = "content")
     private String content;
     @Size(max = 45)
