@@ -14,7 +14,7 @@
 
 </c:if>
 
-<c:url value="/manage" var="action"/>
+<c:url value="/admin/manage" var="action"/>
 
 <form:form method="post" action="${action}" modelAttribute="tours" >
     <div class="form-group">

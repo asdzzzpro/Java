@@ -14,8 +14,11 @@
     
 </c:if>
 
-<c:if test="${param.acessDenied}">
-    <p>Ban khong co quyen truy cap</p>
+<c:if test="${param.acessDenied != null}">
+    <div class="alert alert-danger">
+        <p>Chi Admin moi co quyen truy cap chuc nang nay</p>
+    </div>
+    
 </c:if>
 
 <c:url value="/login" var="action"/>

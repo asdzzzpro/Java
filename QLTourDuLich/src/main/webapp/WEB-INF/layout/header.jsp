@@ -45,7 +45,7 @@
                     </li>
                 </c:if>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/add"/>">Quan ly Tour</a>
+                        <a class="nav-link" href="<c:url value="/admin/manage"/>">Quan ly Tour</a>
                     </li>
             </ul>
 

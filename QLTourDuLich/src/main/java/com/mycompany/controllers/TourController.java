@@ -35,13 +35,13 @@ public class TourController {
 
     }
 
-    @GetMapping("/add")
+    @GetMapping("/admin/manage")
     public String manage(Model model) {
         model.addAttribute("tours", new Tour());
         return "manage";
     }
 
-    @PostMapping("/manage")
+    @PostMapping("/admin/manage")
     public String manage(Model model, @ModelAttribute(value = "tours") @Valid Tour tour, BindingResult result) {
         if (!result.hasErrors()) {
             if (this.tourService.addTour(tour) == true) {
