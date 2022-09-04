@@ -58,5 +58,11 @@ public class UserRepositoryImpl implements UserRepository{
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
+
+    @Override
+    public User getUserById(int idUser) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(User.class, idUser);
+    }
     
 }

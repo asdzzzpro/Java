@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -68,7 +69,7 @@ public class Tour implements Serializable {
     private Date time;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId")
     private Collection<OrderDetail> orderDetailCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId", fetch = FetchType.EAGER)
     private Collection<Tourcomment> tourcommentCollection;
     @JoinColumn(name = "type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

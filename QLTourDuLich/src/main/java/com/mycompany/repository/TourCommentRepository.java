@@ -4,15 +4,13 @@
  */
 package com.mycompany.repository;
 
-import com.mycompany.pojo.User;
-import java.util.List;
+import com.mycompany.pojo.Tourcomment;
 
 /**
  *
  * @author Qhuy
  */
-public interface UserRepository {
-    boolean addUser(User user);
-    List<User> getUsers(String username);
-    User getUserById(int idUser);
+public interface TourCommentRepository {
+    Tourcomment addComment(Tourcomment t);
+    
 }

@@ -2,17 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.mycompany.repository;
+package com.mycompany.service;
 
-import com.mycompany.pojo.User;
-import java.util.List;
+import com.mycompany.pojo.Tourcomment;
 
 /**
  *
  * @author Qhuy
  */
-public interface UserRepository {
-    boolean addUser(User user);
-    List<User> getUsers(String username);
-    User getUserById(int idUser);
+public interface TourCommentService {
+    Tourcomment addComment(String contenString, int idTour);
 }

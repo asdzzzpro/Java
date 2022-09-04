@@ -4,6 +4,7 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -53,9 +54,11 @@ public class Tourcomment implements Serializable {
     private Date createdDate;
     @JoinColumn(name = "tour_id", referencedColumnName = "idTour")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Tour tourId;
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private User userId;
 
     public Tourcomment() {

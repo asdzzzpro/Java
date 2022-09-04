@@ -18,25 +18,43 @@
             <h4>Giá người lớn: ${tour.adultprice} VND/Khách</h4>
             <h4>Giá trẻ em: ${tour.childprice} VND/Khách</h4>
             <div>
-                <input type="button" value="Dat Ngay" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 70px"/>
+                <input type="button" value="Dat Ngay" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
             </div>
         </div>
     </div>
 </div>
-
+<script src="<c:url value="/resources/js/tour.js" />"></script>
 <form style="padding: 15px">
     <div class="form-group">
-        <textarea class="form-control" placeholder="Them binh luan cua ban..."></textarea>
-        <input type="submit" value="Binh luan" class="btn btn-primary" style="margin: 7px"/>
+        <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>
+        <input type="submit" value="Binh luan" onclick="addComment(${tour.idTour})" class="btn btn-primary" style="margin: 7px"/>
     </div>
 </form>
 
-<div class="row">
-    <div class="col-md-2" style="padding: 5px">
-        <img class="rounded-circle img-fluid" src="<c:url value="/resources/images/default.png"/>">
-    </div>
-    <div class="col-md-10">
-        <p>Chat luong rat tot</p>
-        <i>3/9/2022 3:33 AM</i>
-    </div>
+    
+<div id="cmArea">
+    <c:forEach items="${tour.tourcommentCollection}" var="comment">
+        <div class="row">
+            <div class="col-md-2" style="padding: 5px">
+                <img class="rounded-circle img-fluid" src="<c:url value="/resources/images/default.png"/>">
+            </div>
+            <div class="col-md-10 date">
+                <p>${comment.content}</p>
+                <i>${comment.createdDate}</i>
+            </div>
+        </div>
+    </c:forEach>
 </div>
+
+
+<script>
+    setTimeout(5000);
+    window.onload = function () {
+        let dates = document.querySelectorAll(".date > i");
+        for (let i = 0; i < dates.length; i++) {
+            let d = dates[i];
+            d.innerText = moment(d.innerText).fromNow();
+        }
+    };
+
+</script>

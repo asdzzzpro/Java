@@ -13,6 +13,7 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -40,6 +41,11 @@ public class WebAppContextConfig implements WebMvcConfigurer{
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new TypeFormatter());
     }
+    
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
+//    }
     
 //    @Bean
 //    public InternalResourceViewResolver geInternalResourceViewResolver(){
