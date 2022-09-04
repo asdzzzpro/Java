@@ -57,15 +57,11 @@ public class TourRepositoryImpl implements TourRepository {
 
             String tp = params.get("adultPrice");
             if (tp != null) {
-                Predicate p = cr.lessThanOrEqualTo(root.get("adultprice").as(Long.class), Long.parseLong(tp));
+                Predicate p = cr.greaterThanOrEqualTo(root.get("adultprice").as(Long.class), Long.parseLong(tp));
                 predicates.add(p);
             }
 
-            String typeId = params.get("typeId");
-            if (typeId != null) {
-                Predicate p = cr.equal(root.get("idTour"), Integer.parseInt(typeId));
-                predicates.add(p);
-            }
+            
            
 
             cq.where(predicates.toArray(new Predicate[]{}));
