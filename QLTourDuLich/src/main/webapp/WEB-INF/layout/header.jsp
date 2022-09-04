@@ -51,11 +51,7 @@
 
 
 
-            <c:url value="/" var="action" />
-            <form action="${action}" class="d-flex">
-                <input class="form-control me-2" type="text" name="kw" placeholder="Nhap tu khoa...">
-                <button type="submit" class="btn btn-primary" type="button">Tim</button>
-            </form>
+            
         </div>
     </div>
 </nav>

@@ -4,6 +4,22 @@
 
 
 <h1 class="text-primary text-center">Du Lịch Đất Việt</h1>
+
+<c:url value="/" var="action" />
+<form action="${action}" class="d-flex" style="padding: 5px">
+    <input class="form-control me-3" type="text" name="kw" placeholder="Tìm điểm du lịch ...">
+    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
+</form>
+<form action="${action}" class="d-flex" style="padding: 5px">
+    <input class="form-control me-3" type="text" name="childPrice" placeholder="Giá trẻ em từ ....">
+    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
+</form>
+<form action="${action}" class="d-flex" style="padding: 5px">
+    <input class="form-control me-3" type="text" name="adultPrice" placeholder="Giá người lớn từ ...">
+    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
+</form>
+
+
 <div class="row">
     <c:forEach items="${tour}" var="t">
         <div class="col-md-3 col-xs-10" style="padding: 5px;">
@@ -40,9 +56,9 @@
             <h4 class="mda-box-des">${n.title}</h4>
 
             <p>Source: <a>${n.source}</a></p>
-            
+
         </div>
-            
+
         <hr>
 
     </c:forEach>
