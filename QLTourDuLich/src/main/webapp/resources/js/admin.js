@@ -15,11 +15,15 @@ function loadAdmin(endpoint){
             data[i]
             ms += `
             <tr>
-                <td><img class="rounded-circle img-fluid" src="<c:url value="/resources/images/default.png"/>"></td>
+                <td></td>
                 <td>${data[i].nameTour}</td>
                 <td>${data[i].adultprice}</td>
                 <td>${data[i].childprice}</td>s
-                <td><button class="btn btn-danger">Xoa</button></td>
+                <td>
+                    <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idTour}"></div>
+                    <button class="btn btn-danger" onclick="delTour('${endpoint +"/" + data[i].idTour}', ${data[i].idTour})">Xoa</button>
+                    
+                </td>
             </tr>
 `
         }
@@ -27,3 +31,16 @@ function loadAdmin(endpoint){
         d.innerHTML = ms;
     });
     }
+
+function delTour(endpoint, id){
+    let d = document.getElementById("load"+id)
+    d.style.display="block"
+    fetch(endpoint, {
+        method: "delete"
+    }).then(function (res){
+        if(res.status == 204)
+            location.reload();
+    }).catch(function(err){
+        console.error(err)
+    })
+}
