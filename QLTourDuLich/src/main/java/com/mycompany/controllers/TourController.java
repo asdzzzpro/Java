@@ -37,6 +37,7 @@ public class TourController {
 
     @GetMapping("/admin/manage")
     public String manage(Model model) {
+
         model.addAttribute("tours", new Tour());
         return "manage";
     }

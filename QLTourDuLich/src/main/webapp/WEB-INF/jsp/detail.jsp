@@ -18,12 +18,13 @@
             <h4>Giá người lớn: ${tour.adultprice} VND/Khách</h4>
             <h4>Giá trẻ em: ${tour.childprice} VND/Khách</h4>
             <div>
-                <input type="button" value="Dat Ngay" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
+                <input type="button" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
+                <!-- onclick="addToBooking()" -->
             </div>
         </div>
     </div>
 </div>
-<script src="<c:url value="/resources/js/tour.js" />"></script>
+<script src="<c:url value="/js/tour.js" />"></script>
 <form style="padding: 15px">
     <div class="form-group">
         <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>

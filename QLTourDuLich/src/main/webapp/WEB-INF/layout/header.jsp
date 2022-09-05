@@ -47,6 +47,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/admin/manage"/>">Quan ly Tour</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<c:url value="/booking"/>">
+                            <i class="fas fa-car"></i></a>
+                            <div></div>
+                    </li>
             </ul>
 
 

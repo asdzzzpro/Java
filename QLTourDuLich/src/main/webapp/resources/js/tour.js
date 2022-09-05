@@ -5,20 +5,20 @@
 
 /* global fetch, moment */
 
-function addComment(idTour){
+function addComment(idTour) {
     fetch("/QLTourDuLich/api/add-tcomment", {
-        method:"post",
-        body:JSON.stringify({
+        method: "post",
+        body: JSON.stringify({
             "content": document.getElementById("contentId").value,
             "idTour": idTour
         }),
-        headers:{
+        headers: {
             "Content-Type": "application/json"
         }
-    }).then(function(res){
+    }).then(function (res) {
         console.info(res);
         return res.json();
-    }).then(function(data){
+    }).then(function (data) {
         console.info(data);
         let a = document.getElementyById("cmArea");
         a.innerHTML = `
@@ -32,4 +32,33 @@ function addComment(idTour){
             </div>
         </div>` + a.innerHTML;
     });
+
 }
+
+
+
+
+
+//function addToBooking(id, name, price) {
+//    event.preventDefault()
+//    fetch("/QLTourDuLich/api/booking", {
+//        method: "post",
+//        body: JSON.stringify({
+//            "idTour": id,
+//            "nameTour": name,
+//            "price": price,
+//            "quantityChild": 1, //tao 2 nut
+//            "quantityAdult": 1
+//        }),
+//        headers: {
+//            "Content-Type": "application/json"
+//        }
+//    }).then(function (res) {
+//        
+//        return res.json();
+//    }).then(function(data) {
+//        
+//
+//    });
+//
+//}

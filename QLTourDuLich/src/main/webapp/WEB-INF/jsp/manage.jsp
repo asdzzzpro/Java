@@ -50,3 +50,26 @@
         <input type="submit" value="Them" class="btn btn-danger"/>
     </div>
 </form:form>    
+    
+<div class="spinner-border text-secondary" id="load"></div>
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>Ten Tour</th>
+        <th>Gia tre em</th>
+        <th>Gia nguoi lon</th>
+        <th></th>
+    </tr>
+    <tbody id="admin">
+        
+    </tbody>
+</table>
+
+<script src="<c:url value="/js/admin.js" />"></script>
+<script>
+    <c:url value="/api/tours" var="endpoint" />
+
+    window.onload = function () {
+        loadAdmin("${endpoint}");
+    }
+</script>

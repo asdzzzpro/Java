@@ -4,6 +4,7 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -67,12 +68,15 @@ public class Tour implements Serializable {
     @Column(name = "time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId")
     private Collection<OrderDetail> orderDetailCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourId", fetch = FetchType.EAGER)
-    private Collection<Tourcomment> tourcommentCollection;
+    private Collection<Tourcomment> tourcommentCollection; 
     @JoinColumn(name = "type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Type typeId;
 
     public Tour() {
