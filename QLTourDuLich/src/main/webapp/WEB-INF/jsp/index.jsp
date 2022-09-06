@@ -56,7 +56,8 @@
             <h4 class="mda-box-des">${n.title}</h4>
 
             <p>Source: <a>${n.source}</a></p>
-
+            
+            <a href="<c:url value="news/${n.idNews}" />" class="btn btn-primary">Xem chi tiet</a>
         </div>
 
         <hr>

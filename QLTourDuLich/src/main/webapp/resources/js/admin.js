@@ -21,7 +21,7 @@ function loadAdmin(endpoint){
                 <td>${data[i].childprice}</td>s
                 <td>
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idTour}"></div>
-                    <button class="btn btn-danger" onclick="delTour('${endpoint +"/" + data[i].idTour}', ${data[i].idTour})">Xoa</button>
+                    <button class="btn btn-danger" onclick='delTour("${endpoint+'/'+data[i].idTour}",${data[i].idTour})'>Xoa</button>
                     
                 </td>
             </tr>
@@ -34,11 +34,11 @@ function loadAdmin(endpoint){
 
 function delTour(endpoint, id){
     let d = document.getElementById("load"+id)
-    d.style.display="block"
+    d.style.display = "block"
     fetch(endpoint, {
         method: "delete"
     }).then(function (res){
-        if(res.status == 204)
+        if(res.status === 204)
             location.reload();
     }).catch(function(err){
         console.error(err)

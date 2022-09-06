@@ -41,5 +41,29 @@ public class NewsRepositoryImpl implements NewsRepository{
         
         return query.getResultList();
     }
+
+    @Override
+    public News getNewsById(int i) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        News s = session.get(News.class, i);
+        return s;
+    }
+
+    @Override
+    public boolean addNews(News news) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(news);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delNews(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

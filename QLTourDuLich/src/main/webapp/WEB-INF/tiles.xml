@@ -48,7 +48,16 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/booking.jsp" />
     </definition>
-    
+    <definition name="news" extends="baseLayout">
+        <put-attribute name="title" value="Dat tour du lich" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/news.jsp" />
+    </definition>
+    <definition name="listnews" extends="baseLayout">
+        <put-attribute name="title" value="Quan ly tin tuc" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/listnews.jsp" />
+    </definition>
     
 </tiles-definitions>
 

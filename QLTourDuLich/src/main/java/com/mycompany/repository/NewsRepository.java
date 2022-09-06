@@ -14,4 +14,7 @@ import java.util.Map;
  */
 public interface NewsRepository {
     List<News> getNewses(Map<String, String> params, int page);
+    boolean addNews(News n);
+    boolean delNews(int id);
+    News getNewsById(int id);
 }

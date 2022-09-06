@@ -25,5 +25,20 @@ public class NewsServiceImpl implements NewsService{
     public List<News> getNewses(Map<String, String> params, int page) {
         return this.newsRepository.getNewses(params, page);
     }   
+
+    @Override
+    public News getNewsById(int i) {
+        return this.newsRepository.getNewsById(i);
+    }
+
+    @Override
+    public boolean addNews(News news) {
+        return this.newsRepository.addNews(news);
+    }
+
+    @Override
+    public boolean delNews(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
