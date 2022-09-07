@@ -48,7 +48,8 @@ function loadNews(endpoint) {
                 <td>${data[i].image}</td>
                 <td>${data[i].source}</td>
                 <td> 
-                    <button class="btn btn-danger" >Xoa</button>         
+                    <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idNews}"></div>
+                    <button class="btn btn-danger" onclick='delNews("${endpoint + '/' + data[i].idNews}",${data[i].idNews})'>Xoa</button>         
                 </td>
             </tr>
 `
@@ -69,4 +70,17 @@ function delTour(endpoint, id) {
     }).catch(function (err) {
         console.error(err)
     })
+}
+
+function delNews(endpoint, id) {
+    let d = document.getElementById("load" + id);
+    d.style.display = "block";
+    fetch(endpoint, {
+        method: "delete"
+    }).then(function (res) {
+        if (res.status === 204)
+            location.reload();
+    }).catch(function (err) {
+        console.error(err);
+    });
 }
