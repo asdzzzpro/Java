@@ -5,6 +5,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.pojo.Tourcomment;
+import java.util.List;
 
 /**
  *
@@ -12,5 +13,5 @@ import com.mycompany.pojo.Tourcomment;
  */
 public interface TourCommentRepository {
     Tourcomment addComment(Tourcomment t);
-    
+    List<Tourcomment> getComments();
 }

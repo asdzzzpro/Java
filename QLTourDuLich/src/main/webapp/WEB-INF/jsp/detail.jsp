@@ -32,31 +32,20 @@
     </div>
 </form>
 
-    
-<div id="cmArea">
-    <c:forEach items="${tour.tourcommentCollection}" var="comment">
-        <div class="row">
-            <div class="col-md-2" style="padding: 5px">
-                <img class="rounded-circle img-fluid" src="<c:url value="/resources/images/default.png"/>">
-            </div>
-            <div class="col-md-10 date">
-                <p>${comment.content}</p>
-                <i>${comment.createdDate}</i>
-            </div>
-        </div>
-    </c:forEach>
+    <ul id="tourcomment">
         
-</div>
+    </ul>
+    
+<script src="<c:url value="/js/tour.js" />"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
 
 
+
+<script src="<c:url value="/js/tour.js" />"></script>
 <script>
-    setTimeout(5000);
+    <c:url value="/api/tourcomment" var="tour" />
     window.onload = function () {
-        let dates = document.querySelectorAll(".date > i");
-        for (let i = 0; i < dates.length; i++) {
-            let d = dates[i];
-            d.innerText = moment(d.innerText).fromNow();
-        }
+        loadComment('${tour}')
     };
 
 </script>

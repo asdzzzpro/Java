@@ -19,4 +19,5 @@ public interface NewsService {
     boolean delNews(int id);
     News getNewsById(int id);
     Newscomment addNewscomment(String content, int id);
+    List<Newscomment> getComments();
 }

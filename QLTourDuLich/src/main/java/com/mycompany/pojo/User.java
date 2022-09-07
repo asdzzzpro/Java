@@ -4,6 +4,7 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -92,12 +93,16 @@ public class User implements Serializable {
     @Transient
     private String confirmPassword;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Collection<Newscomment> newscommentCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Collection<Receipt> receiptCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Collection<Tourcomment> tourcommentCollection;
     @OneToMany(mappedBy = "userId")
+    @JsonIgnore
     private Collection<Order1> order1Collection;
 
     public User() {

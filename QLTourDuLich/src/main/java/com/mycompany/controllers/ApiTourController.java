@@ -33,6 +33,12 @@ public class ApiTourController {
     private TourCommentService tourCommentService;
     @Autowired
     private TourService tourService;
+    
+    @GetMapping("/api/tourcomment")
+    public ResponseEntity<List<Tourcomment>> getTourComment(){
+        return new ResponseEntity<>(this.tourCommentService.getComments(), HttpStatus.OK);
+    }
+    
 
     @PostMapping(path = "/api/add-tcomment",produces = {
         MediaType.APPLICATION_JSON_VALUE

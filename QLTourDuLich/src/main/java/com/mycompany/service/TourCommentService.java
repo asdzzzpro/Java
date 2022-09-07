@@ -5,6 +5,7 @@
 package com.mycompany.service;
 
 import com.mycompany.pojo.Tourcomment;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import com.mycompany.pojo.Tourcomment;
  */
 public interface TourCommentService {
     Tourcomment addComment(String contentString, int idTour);
+    List<Tourcomment> getComments();
 }

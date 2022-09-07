@@ -89,6 +89,13 @@ public class NewsRepositoryImpl implements NewsRepository{
         }
         return null;
     }
+
+    @Override
+    public List<Newscomment> getComments() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query query = session.createQuery("From Newscomment");
+        return query.getResultList();
+    }
     
         
     

@@ -12,6 +12,7 @@ import com.mycompany.repository.TourRepository;
 import com.mycompany.repository.UserRepository;
 import com.mycompany.service.TourCommentService;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,11 @@ public class TourCommentServiceImpl implements TourCommentService{
         cm.setTourId(t);
         cm.setCreatedDate(new Date());
         return this.tourCommentRepository.addComment(cm);
+    }
+
+    @Override
+    public List<Tourcomment> getComments() {
+        return this.tourCommentRepository.getComments();
     }
     
 }

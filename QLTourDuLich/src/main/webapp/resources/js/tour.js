@@ -5,6 +5,8 @@
 
 /* global fetch, moment */
 
+
+
 function addComment(idTour) {
     fetch("/QLTourDuLich/api/add-tcomment", {
         method: "post",
@@ -35,6 +37,37 @@ function addComment(idTour) {
 
 }
 
+function loadComment(endpoint){
+    fetch(endpoint).then(function (res) {
+        return res.json();
+    }).then(function (data){
+        let ms='';
+        for (let c of data){
+            ms+=`
+                
+        
+<div>
+    
+        <div class="row">
+            <div class="col-md-2" style="padding: 5px">
+                <img class="rounded-circle img-fluid" src="<c:url value='/resources/images/default.png'/>">
+            </div>
+            <div class="col-md-10 date">
+                <p>${c.content}</p>
+                <p>duoc binh luan boi ${c.user.username}</p>
+                <i>${moment(c.createdDate).locale("vi").fromNow()}</i>
+            </div>
+        
+        </div>
+        <br>
+        
+</div>
+            `
+        }
+        let cm  = document.getElementById("tourcomment")
+        cm.innerHTML = ms
+    })
+}
 
 
 

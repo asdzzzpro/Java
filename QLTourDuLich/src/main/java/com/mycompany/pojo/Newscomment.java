@@ -4,6 +4,8 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -49,9 +51,11 @@ public class Newscomment implements Serializable {
     private Date createdDate;
     @JoinColumn(name = "news_id", referencedColumnName = "id_news")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private News newsId;
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     @ManyToOne(optional = false)
+    @JsonProperty("user")
     private User userId;
 
     public Newscomment() {

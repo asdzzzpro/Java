@@ -39,7 +39,7 @@ public class NewsServiceImpl implements NewsService{
 
     @Override
     public boolean addNews(News news) {
-        return this.newsRepository.addNews(news);
+        return this.newsRepository.addNews(news);   
     }
 
     @Override
@@ -49,6 +49,7 @@ public class NewsServiceImpl implements NewsService{
 
     @Override
     public Newscomment addNewscomment(String string, int i) {
+        
         User u = this.userRepository.getUserById(3);
         News n = this.newsRepository.getNewsById(i);
         Newscomment newscomment = new Newscomment();
@@ -57,6 +58,11 @@ public class NewsServiceImpl implements NewsService{
         newscomment.setNewsId(n);
         newscomment.setCreatedDate(new Date());
         return this.newsRepository.addNewscomment(newscomment);
+    }
+
+    @Override
+    public List<Newscomment> getComments() {
+        return this.newsRepository.getComments();
     }
 
 

@@ -19,4 +19,5 @@ public interface NewsRepository {
     boolean delNews(int id);
     News getNewsById(int id);
     Newscomment addNewscomment(Newscomment n);
+    List<Newscomment> getComments();
 }
