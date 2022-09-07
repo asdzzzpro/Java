@@ -5,6 +5,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.pojo.News;
+import com.mycompany.pojo.Newscomment;
 import java.util.List;
 import java.util.Map;
 
@@ -17,4 +18,5 @@ public interface NewsRepository {
     boolean addNews(News n);
     boolean delNews(int id);
     News getNewsById(int id);
+    Newscomment addNewscomment(Newscomment n);
 }

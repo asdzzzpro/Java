@@ -5,8 +5,12 @@
 package com.mycompany.service.impl;
 
 import com.mycompany.pojo.News;
+import com.mycompany.pojo.Newscomment;
+import com.mycompany.pojo.User;
 import com.mycompany.repository.NewsRepository;
+import com.mycompany.repository.UserRepository;
 import com.mycompany.service.NewsService;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,8 @@ import org.springframework.stereotype.Service;
 public class NewsServiceImpl implements NewsService{
     @Autowired
     private NewsRepository newsRepository;
+    @Autowired
+    private UserRepository userRepository;
     
     @Override
     public List<News> getNewses(Map<String, String> params, int page) {
@@ -38,7 +44,22 @@ public class NewsServiceImpl implements NewsService{
 
     @Override
     public boolean delNews(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.newsRepository.delNews(i);
     }
+
+    @Override
+    public Newscomment addNewscomment(String string, int i) {
+        User u = this.userRepository.getUserById(3);
+        News n = this.newsRepository.getNewsById(i);
+        Newscomment newscomment = new Newscomment();
+        newscomment.setContent(string);
+        newscomment.setUserId(u);
+        newscomment.setNewsId(n);
+        newscomment.setCreatedDate(new Date());
+        return this.newsRepository.addNewscomment(newscomment);
+    }
+
+
+    
     
 }

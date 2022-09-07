@@ -4,6 +4,7 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -68,6 +69,7 @@ public class News implements Serializable {
     @Column(name = "source")
     private String source;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "newsId")
+    @JsonIgnore
     private Collection<Newscomment> newscommentCollection;
 
     public News() {

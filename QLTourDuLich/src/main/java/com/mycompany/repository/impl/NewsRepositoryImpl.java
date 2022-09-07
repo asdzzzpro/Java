@@ -5,6 +5,7 @@
 package com.mycompany.repository.impl;
 
 import com.mycompany.pojo.News;
+import com.mycompany.pojo.Newscomment;
 
 import com.mycompany.repository.NewsRepository;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,7 @@ public class NewsRepositoryImpl implements NewsRepository{
         CriteriaQuery<News> cq = cr.createQuery(News.class);
         Root root = cq.from(News.class);
         cq.select(root);
+        
         Query query = session.createQuery(cq);
         
         return query.getResultList();
@@ -63,7 +66,30 @@ public class NewsRepositoryImpl implements NewsRepository{
 
     @Override
     public boolean delNews(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+
+        try {
+            News n = session.get(News.class, i);
+            session.delete(n);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
+
+    @Override
+    public Newscomment addNewscomment(Newscomment n) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(n);
+            return n;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+        
     
 }

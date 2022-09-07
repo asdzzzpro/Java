@@ -11,5 +11,5 @@ import com.mycompany.pojo.Tourcomment;
  * @author Qhuy
  */
 public interface TourCommentService {
-    Tourcomment addComment(String contenString, int idTour);
+    Tourcomment addComment(String contentString, int idTour);
 }

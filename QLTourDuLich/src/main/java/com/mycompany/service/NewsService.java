@@ -5,6 +5,7 @@
 package com.mycompany.service;
 
 import com.mycompany.pojo.News;
+import com.mycompany.pojo.Newscomment;
 import java.util.List;
 import java.util.Map;
 
@@ -17,4 +18,5 @@ public interface NewsService {
     boolean addNews(News n);
     boolean delNews(int id);
     News getNewsById(int id);
+    Newscomment addNewscomment(String content, int id);
 }

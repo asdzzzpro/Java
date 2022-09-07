@@ -5,23 +5,23 @@
 
 /* global fetch */
 
-function loadAdmin(endpoint){
-    fetch(endpoint).then(function(res){
+function loadAdmin(endpoint) {
+    fetch(endpoint).then(function (res) {
         return res.json();
-    }).then(function (data){
+    }).then(function (data) {
         console.info(data);
         let ms = "";
-        for (let i =0; i < data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             data[i]
             ms += `
             <tr>
                 <td></td>
                 <td>${data[i].nameTour}</td>
                 <td>${data[i].adultprice}</td>
-                <td>${data[i].childprice}</td>s
+                <td>${data[i].childprice}</td>
                 <td>
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idTour}"></div>
-                    <button class="btn btn-danger" onclick='delTour("${endpoint+'/'+data[i].idTour}",${data[i].idTour})'>Xoa</button>
+                    <button class="btn btn-danger" onclick='delTour("${endpoint + '/' + data[i].idTour}",${data[i].idTour})'>Xoa</button>
                     
                 </td>
             </tr>
@@ -30,17 +30,43 @@ function loadAdmin(endpoint){
         let d = document.getElementById("admin");
         d.innerHTML = ms;
     });
-    }
+}
 
-function delTour(endpoint, id){
-    let d = document.getElementById("load"+id)
+function loadNews(endpoint) {
+    fetch(endpoint).then(function (res) {
+        return res.json();
+    }).then(function (data) {
+        console.info(data);
+        let msg = "";
+        for (let i = 0; i < data.length; i++) {
+            data[i]
+            msg += `
+            <tr>
+                <td></td>
+                <td>${data[i].title}</td>
+                <td>${data[i].content}</td>
+                <td>${data[i].image}</td>
+                <td>${data[i].source}</td>
+                <td> 
+                    <button class="btn btn-danger" >Xoa</button>         
+                </td>
+            </tr>
+`
+        }
+        let doc = document.getElementById("listnews");
+        doc.innerHTML = msg;
+    });
+}
+
+function delTour(endpoint, id) {
+    let d = document.getElementById("load" + id)
     d.style.display = "block"
     fetch(endpoint, {
         method: "delete"
-    }).then(function (res){
-        if(res.status === 204)
+    }).then(function (res) {
+        if (res.status === 204)
             location.reload();
-    }).catch(function(err){
+    }).catch(function (err) {
         console.error(err)
     })
 }
