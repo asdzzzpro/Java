@@ -42,9 +42,9 @@ public class OrderDetail implements Serializable {
 
     @Column(name = "unitprice")
     private Long unitprice;
-
     @Column(name = "number")
-    private int number;
+    private Integer number;
+    
     @JoinColumn(name = "order_id", referencedColumnName = "id_order")
     @ManyToOne(optional = false)
     private Order1 orderId;

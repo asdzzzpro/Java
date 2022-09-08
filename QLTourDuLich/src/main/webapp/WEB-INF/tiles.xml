@@ -59,5 +59,20 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
                        value="/WEB-INF/jsp/listnews.jsp" />
     </definition>
     
+    <definition name="baseAdminLayout"
+                template="/WEB-INF/layout/base-admin.jsp">
+        <put-attribute name="title" value="Danh sach thong ke" />
+        <put-attribute name="left"
+                       value="/WEB-INF/layout/admin-left.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/admin-footer.jsp" />
+    </definition>
+    
+    <definition name="tour-stats" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thong ke loai hinh du lich" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/tour-stats.jsp" />
+    </definition>
 </tiles-definitions>
 

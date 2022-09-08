@@ -4,11 +4,13 @@
  */
 package com.mycompany.pojo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Qhuy
  */
-public class Booking {
+public class Booking implements Serializable{
     private int idTour;
     private String nameTour;
     private Long childprice;

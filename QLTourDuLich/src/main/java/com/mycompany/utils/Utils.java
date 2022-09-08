@@ -34,7 +34,7 @@ public class Utils {
             }
                 
         }
-        Map<String,String> stats = new HashMap<>();
+        Map<String, String> stats = new HashMap<>();
         stats.put("count", String.valueOf(q));
         stats.put("total", String.valueOf(total));
         return stats;

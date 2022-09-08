@@ -26,7 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Qhuy
  */
 @Repository
-
 public class OrderRepositoryImpl implements OrderRepository {
 
     @Autowired
@@ -41,6 +40,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     public boolean addReceipt(Map<Integer, Booking> booking) {
         try {
             Session session = this.sessionFactory.getObject().getCurrentSession();
+            
             Order1 order = new Order1();
             order.setUserId(this.userRepository.getUserById(3));
             order.setCreateddate(new Date());
@@ -49,13 +49,15 @@ public class OrderRepositoryImpl implements OrderRepository {
             session.save(order);
 
             for (Booking b : booking.values()) {
-                OrderDetail o = new OrderDetail();
-                o.setOrderId(order);
-                o.setTourId(this.tourRepository.getTourById(b.getIdTour()));
-                o.setUnitprice(b.getAdultprice());
-                o.setNumber(b.getQuantityAdult());
-                return true;
+                OrderDetail d = new OrderDetail();
+                d.setOrderId(order);
+                d.setTourId(this.tourRepository.getTourById(b.getIdTour()));
+                d.setUnitprice(b.getAdultprice());
+                d.setNumber(b.getQuantityAdult());
+                session.save(d);
+                
             }
+            return true;
         } catch (HibernateException e) {
             e.printStackTrace();
         }

@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiBookingController {
     @Autowired
     private OrderService orderService;
+    
     @PostMapping("/api/booking")
     public int addToBooking(@RequestBody Booking p, HttpSession session){
         Map<Integer, Booking> booking = (Map<Integer, Booking>) session.getAttribute("booking");

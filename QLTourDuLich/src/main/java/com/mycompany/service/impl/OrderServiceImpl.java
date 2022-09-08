@@ -22,9 +22,9 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public boolean addReceipt(Map<Integer, Booking> booking) {
-        if(booking != null)
+        if(booking != null){
             return this.orderRepository.addReceipt(booking);
-        
+        }
         return false;
     }
     
