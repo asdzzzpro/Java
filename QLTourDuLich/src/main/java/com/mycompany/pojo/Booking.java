@@ -11,7 +11,8 @@ package com.mycompany.pojo;
 public class Booking {
     private int idTour;
     private String nameTour;
-    private Long price;
+    private Long childprice;
+    private Long adultprice;
     private int quantityChild;
     private int quantityAdult;
 
@@ -43,19 +44,6 @@ public class Booking {
         this.nameTour = nameTour;
     }
 
-    /**
-     * @return the price
-     */
-    public Long getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(Long price) {
-        this.price = price;
-    }
 
     /**
      * @return the quantityChild
@@ -83,6 +71,34 @@ public class Booking {
      */
     public void setQuantityAdult(int quantityAdult) {
         this.quantityAdult = quantityAdult;
+    }
+
+    /**
+     * @return the childprice
+     */
+    public Long getChildprice() {
+        return childprice;
+    }
+
+    /**
+     * @param childprice the childprice to set
+     */
+    public void setChildprice(Long childprice) {
+        this.childprice = childprice;
+    }
+
+    /**
+     * @return the adultprice
+     */
+    public Long getAdultprice() {
+        return adultprice;
+    }
+
+    /**
+     * @param adultprice the adultprice to set
+     */
+    public void setAdultprice(Long adultprice) {
+        this.adultprice = adultprice;
     }
 
 

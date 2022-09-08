@@ -39,12 +39,12 @@ public class OrderDetail implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
+
     @Column(name = "unitprice")
-    private String unitprice;
-    @Size(max = 45)
+    private Long unitprice;
+
     @Column(name = "number")
-    private String number;
+    private int number;
     @JoinColumn(name = "order_id", referencedColumnName = "id_order")
     @ManyToOne(optional = false)
     private Order1 orderId;
@@ -67,19 +67,13 @@ public class OrderDetail implements Serializable {
         this.id = id;
     }
 
-    public String getUnitprice() {
-        return unitprice;
-    }
 
-    public void setUnitprice(String unitprice) {
-        this.unitprice = unitprice;
-    }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
@@ -122,6 +116,20 @@ public class OrderDetail implements Serializable {
     @Override
     public String toString() {
         return "com.mycompany.pojo.OrderDetail[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the unitprice
+     */
+    public Long getUnitprice() {
+        return unitprice;
+    }
+
+    /**
+     * @param unitprice the unitprice to set
+     */
+    public void setUnitprice(Long unitprice) {
+        this.unitprice = unitprice;
     }
     
 }

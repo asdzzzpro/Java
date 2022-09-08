@@ -37,13 +37,13 @@ function addComment(idTour) {
 
 }
 
-function loadComment(endpoint){
+function loadComment(endpoint) {
     fetch(endpoint).then(function (res) {
         return res.json();
-    }).then(function (data){
-        let ms='';
-        for (let c of data){
-            ms+=`
+    }).then(function (data) {
+        let ms = '';
+        for (let c of data) {
+            ms += `
                 
         
 <div>
@@ -64,7 +64,7 @@ function loadComment(endpoint){
 </div>
             `
         }
-        let cm  = document.getElementById("tourcomment")
+        let cm = document.getElementById("tourcomment")
         cm.innerHTML = ms
     })
 }
@@ -72,26 +72,83 @@ function loadComment(endpoint){
 
 
 
-//function addToBooking(id, name, price) {
-//    event.preventDefault()
-//    fetch("/QLTourDuLich/api/booking", {
-//        method: "post",
-//        body: JSON.stringify({
-//            "idTour": id,
-//            "nameTour": name,
-//            "price": price,
-//            "quantityChild": 1, //tao 2 nut
-//            "quantityAdult": 1
-//        }),
-//        headers: {
-//            "Content-Type": "application/json"
-//        }
-//    }).then(function (res) {
-//        
-//        return res.json();
-//    }).then(function(data) {
-//        
-//
-//    });
-//
-//}
+function addToBooking(idTour, nameTour, childprice, adultprice) {
+    event.preventDefault();
+    fetch("/QLTourDuLich/api/booking", {
+        method: "post",
+        body: JSON.stringify({
+            "idTour": idTour,
+            "nameTour": nameTour,
+            "childprice": childprice,
+            "adultprice": adultprice,
+
+            "quantityChild": 1, //tao 2 nut
+            "quantityAdult": 1
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (res) {
+
+        return res.json();
+    }).then(function (data) {
+//        let counter = document.getElementById("counter")
+//        counter.innerText = data
+
+    });
+
+}
+
+function updateBooking(obj, idTour) {
+    fetch("/QLTourDuLich/api/booking", {
+        method: "put",
+        body: JSON.stringify({
+            "idTour": idTour,
+            "nameTour": "",
+            "childprice": 0,
+            "adultprice": 0,
+
+            "quantityAdult": obj.value,
+            "quantityChild": 1 //tao 2 nut
+
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (res) {
+        return res.json();
+    }).then(function (data) {
+
+
+    });
+}
+
+function delBooking(idTour) {
+    if (confirm("Ban co chac muon huy tour nay khong ?") == true) {
+        fetch(`/QLTourDuLich/api/booking/${idTour}`, {
+            method: "delete"
+        }).then(function (res) {
+            return res.json();
+        }).then(function (data) {
+//            let count = document.getElementById("count")
+//            count.innerText = data.count
+//            let total = document.getElementById("total")
+//            total.innerText = data.total
+            location.reload();
+        })
+    }
+
+}
+
+function pay(){
+    if(confirm("Ban co muon thanh toan ?") == true){
+        fetch("/QLTourDuLich/api/pay",{
+            method:"post"
+        }).then(function (res){
+            return res.json();
+        }).then(function (code){
+            console.info(code);
+            location.reload();
+        })
+    }
+}

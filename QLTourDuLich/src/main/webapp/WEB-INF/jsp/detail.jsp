@@ -6,6 +6,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<script src="<c:url value="/js/tour.js" />"></script>
 <div class="container" style="padding-top: 30px">
     <div class="row">
         <div class="col-md-6">
@@ -18,7 +20,7 @@
             <h4>Giá người lớn: ${tour.adultprice} VND/Khách</h4>
             <h4>Giá trẻ em: ${tour.childprice} VND/Khách</h4>
             <div>
-                <input type="button" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
+                <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
                 <!-- onclick="addToBooking()" -->
             </div>
         </div>

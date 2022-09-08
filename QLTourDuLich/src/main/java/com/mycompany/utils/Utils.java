@@ -5,6 +5,7 @@
 package com.mycompany.utils;
 
 import com.mycompany.pojo.Booking;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,14 +13,30 @@ import java.util.Map;
  * @author Qhuy
  */
 public class Utils {
-    public static int countAdult(Map<Integer, Booking> booking){
-        int adult = 0;
+    public static int count(Map<Integer, Booking> booking){
+        int q = 0;
         if (booking !=null) {
             for(Booking b: booking.values())
-            adult += b.getQuantityAdult();
+            q += b.getQuantityAdult();
         }
         
         
-        return adult;
+        return q;
+    }
+    
+    public static Map<String,String> stats(Map<Integer, Booking> booking){
+        Long total = 0l;
+        int q = 0;
+        if (booking !=null) {
+            for(Booking b: booking.values()){
+                q += b.getQuantityAdult();
+                total += b.getQuantityAdult()*b.getAdultprice();
+            }
+                
+        }
+        Map<String,String> stats = new HashMap<>();
+        stats.put("count", String.valueOf(q));
+        stats.put("total", String.valueOf(total));
+        return stats;
     }
 }

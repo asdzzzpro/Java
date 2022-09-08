@@ -67,3 +67,4 @@ function addComment(idNews) {
     });
 
 }
+
