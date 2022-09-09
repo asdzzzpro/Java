@@ -55,7 +55,7 @@ public class StatsRepositoryImpl implements StatsRepository {
         return query.getResultList();
 
     }
-
+    //int quarter, int year
     @Override
     public List<Object[]> revenueStats(String kw, Date fromDate, Date toDate) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
@@ -63,13 +63,37 @@ public class StatsRepositoryImpl implements StatsRepository {
         CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
         Root rootT = q.from(Tour.class);
         Root rootOd = q.from(OrderDetail.class);
+//        Root rootO = q.from(Order1.class);
 
-
+//        List<Predicate> predicates = new ArrayList<>();
+//        predicates.add(b.equal(rootOd.get("tourId"), rootT.get("idTour")));
+//        predicates.add(b.equal(rootOd.get("orderId"), rootO.get("idOrder")));
         
-        q.where(b.equal(rootOd.get("tourId"), rootT.get("idTour")));
+        
+        
+//        if (kw !=null) {
+//            predicates.add(b.like(rootT.get("nameTour"), kw));
+//            
+//        }
+//        
+//        if (fromDate != null) {
+//            predicates.add(b.greaterThanOrEqualTo(rootO.get("createddate"), fromDate));
+//        }
+//        
+//        if (toDate != null) {
+//            predicates.add(b.lessThanOrEqualTo(rootO.get("createddate"), toDate));
+//        }
+//        
+//        q.multiselect(rootT.get("idTour"), rootT.get("nameTour"), b.sum(b.prod(rootOd.get("unitprice"), rootOd.get("number"))));
+
+//
+//          q.where(b.equal(rootOd.get("tourId"), rootT.get("idTour")),
+//                b.equal(rootOd.get("orderId"), rootO.get("id")),
+//                b.equal(b.function("QUARTER", Integer.class, rootO.get("createddate")), quarter),
+//                b.equal(b.function("YEAR", Integer.class, rootO.get("createddate")), year));
+
         q.multiselect(rootT.get("idTour"), rootT.get("nameTour"), b.sum(b.prod(rootOd.get("unitprice"), rootOd.get("number"))));
-        
-
+        q.where(b.equal(rootOd.get("tourId"), rootT.get("idTour")));
         q.groupBy(rootT.get("idTour"));
         
 

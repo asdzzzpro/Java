@@ -41,5 +41,10 @@ public class TourServiceImpl implements TourService{
     public Tour getTourById(int i) {
         return this.tourRepository.getTourById(i);
     }
+
+    @Override
+    public int countTour() {
+        return this.tourRepository.countTour();
+    }
     
 }

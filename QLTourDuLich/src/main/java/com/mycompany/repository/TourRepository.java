@@ -17,4 +17,5 @@ public interface TourRepository {
     boolean addTour(Tour t);
     boolean delTour(int id);
     Tour getTourById(int id);
+    int countTour();
 }

@@ -19,6 +19,17 @@
     <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
 </form>
 
+<div>
+    <p>So luong tour: ${count}</p>
+    <ul class="pagination">
+        <c:forEach begin="1" end="${Math.ceil(count/20)}" var="i">
+            <li class="page-item"><a class="page-link" href="<c:url value="/"/>?page=${i}">${i}</a></li>
+        </c:forEach>
+        
+        
+
+    </ul>
+</div>
 
 <div class="row">
     <c:forEach items="${tour}" var="t">
@@ -56,7 +67,7 @@
             <h4 class="mda-box-des">${n.title}</h4>
 
             <p>Source: <a>${n.source}</a></p>
-            
+
             <a href="<c:url value="news/${n.idNews}" />" class="btn btn-primary">Xem chi tiet</a>
         </div>
 

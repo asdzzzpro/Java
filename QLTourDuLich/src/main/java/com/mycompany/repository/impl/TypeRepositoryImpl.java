@@ -31,4 +31,12 @@ public class TypeRepositoryImpl implements TypeRepository{
         Query q = s.createQuery("From Type");
         return q.getResultList();
     }
+
+    @Override
+    public Type getTypeById(int typeId) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Type.class, typeId);
+    }
+    
+    
 }
