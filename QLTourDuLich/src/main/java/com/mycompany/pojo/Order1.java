@@ -59,6 +59,7 @@ public class Order1 implements Serializable {
     private User userId;
 
     public Order1() {
+        createddate = new Date();
     }
 
     public Order1(Integer idOrder) {

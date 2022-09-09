@@ -6,6 +6,7 @@ package com.mycompany.service.impl;
 
 import com.mycompany.repository.StatsRepository;
 import com.mycompany.service.StatsService;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,11 @@ public class StatsServiceImpl implements StatsService{
     @Override
     public List<Object[]> tourStats() {
         return this.statsRepository.tourStats();
+    }
+
+    @Override
+    public List<Object[]> revenueStats(String kw, Date fromDate, Date toDate) {
+        return this.statsRepository.revenueStats(kw, fromDate, toDate);
     }
     
 }

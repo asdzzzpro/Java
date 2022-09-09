@@ -25,4 +25,10 @@ public class StatsController {
         model.addAttribute("tourstats",this.statsService.tourStats());
         return "tour-stats";
     }
+    
+    @GetMapping("/revenue-stats")
+    public String revenueStats(Model model){
+        model.addAttribute("revenuestats", this.statsService.revenueStats(null, null, null));
+        return "revenue-stats";
+    }
 }

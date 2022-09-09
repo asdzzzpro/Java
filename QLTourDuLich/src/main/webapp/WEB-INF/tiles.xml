@@ -74,5 +74,10 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/tour-stats.jsp" />
     </definition>
+    <definition name="revenue-stats" extends="baseAdminLayout">
+        <put-attribute name="title" value="Thong ke loai hinh theo doanh thu" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/revenue-stats.jsp" />
+    </definition>
 </tiles-definitions>
 

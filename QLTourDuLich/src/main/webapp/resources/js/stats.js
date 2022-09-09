@@ -34,3 +34,28 @@ function tourStats(id, labels=[], info=[]) {
     let ch = document.getElementById(id).getContext("2d")
     new Chart(ch, config)
 }
+
+function revenueChart(id, rlabels=[], rinfo=[]){
+    let color = []
+    for (let i=0; i< rinfo.length; i++)
+        color.push(colors())
+        
+    const data = {
+        labels: rlabels,
+        datasets: [{
+                label: 'Thong ke doanh tour du lich',
+                data: rinfo,
+                backgroundColor: color,
+                hoverOffset: 4
+            }]
+    };
+
+
+    const config = {
+        type: 'line',
+        data: data,
+    };
+    
+    let ch = document.getElementById(id).getContext("2d")
+    new Chart(ch, config)
+}

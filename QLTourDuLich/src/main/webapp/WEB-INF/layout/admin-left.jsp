@@ -14,7 +14,7 @@
         <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thong ke so luong tour du lich theo nhom</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Thong ke doanh thu thoi gian</a>
+      <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thong ke doanh thu thoi gian</a>
     </li>
 
   </ul>

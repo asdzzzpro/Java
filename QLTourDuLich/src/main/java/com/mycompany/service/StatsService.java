@@ -4,6 +4,7 @@
  */
 package com.mycompany.service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,4 +13,5 @@ import java.util.List;
  */
 public interface StatsService {
     List<Object[]> tourStats();
+    List<Object[]> revenueStats(String kw, Date fromDate, Date toDate);
 }
