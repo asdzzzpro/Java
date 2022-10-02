@@ -60,27 +60,32 @@ function loadNews(endpoint) {
 }
 
 function delTour(endpoint, id) {
-    let d = document.getElementById("load" + id)
-    d.style.display = "block"
-    fetch(endpoint, {
-        method: "delete"
-    }).then(function (res) {
-        if (res.status === 204)
-            location.reload();
-    }).catch(function (err) {
-        console.error(err)
-    })
+    let d = document.getElementById("load" + id);
+    d.style.display = "block";
+    if (confirm("Ban co chac muon xoa tour nay khong ?") == true) {
+        fetch(endpoint, {
+            method: "delete"
+        }).then(function (res) {
+            if (res.status === 204)
+                location.reload();
+        }).catch(function (err) {
+            console.error(err);
+        });
+    }
 }
 
 function delNews(endpoint, id) {
     let d = document.getElementById("load" + id);
     d.style.display = "block";
-    fetch(endpoint, {
-        method: "delete"
-    }).then(function (res) {
-        if (res.status === 204)
-            location.reload();
-    }).catch(function (err) {
-        console.error(err);
-    });
+    if (confirm("Ban co chac muon xoa tin nay khong ?") == true) {
+        fetch(endpoint, {
+            method: "delete"
+        }).then(function (res) {
+            if (res.status === 204)
+                location.reload();
+        }).catch(function (err) {
+            console.error(err);
+        });
+    }
+
 }

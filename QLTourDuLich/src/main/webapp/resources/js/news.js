@@ -39,7 +39,7 @@ function loadComment(endpoint){
 }
 
 function addComment(idNews) {
-    fetch("/QLTourDuLich/api/add-tcomment", {
+    fetch("/QLTourDuLich/api/add-ncomment", {
         method: "post",
         body: JSON.stringify({
             "content": document.getElementById("contentId").value,

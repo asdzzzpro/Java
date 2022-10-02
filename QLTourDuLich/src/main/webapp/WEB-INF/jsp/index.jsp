@@ -22,7 +22,7 @@
 <div>
     <p>So luong tour: ${count}</p>
     <ul class="pagination">
-        <c:forEach begin="1" end="${Math.ceil(count/20)}" var="i">
+        <c:forEach begin="1" end="${Math.ceil(count/8)}" var="i">
             <li class="page-item"><a class="page-link" href="<c:url value="/"/>?page=${i}">${i}</a></li>
         </c:forEach>
         

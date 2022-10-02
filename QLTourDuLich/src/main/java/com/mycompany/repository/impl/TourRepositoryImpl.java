@@ -34,7 +34,7 @@ public class TourRepositoryImpl implements TourRepository {
     private LocalSessionFactoryBean sessionFactory;
 
     @Override
-    public List<Tour> getTours(Map<String, String> params, int i) {
+    public List<Tour> getTours(Map<String, String> params, int page) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder cr = session.getCriteriaBuilder();
         CriteriaQuery<Tour> cq = cr.createQuery(Tour.class);
@@ -69,9 +69,13 @@ public class TourRepositoryImpl implements TourRepository {
         
         Query query = session.createQuery(cq);
         
-        int max = 20;
-        query.setMaxResults(max);
-        query.setFirstResult((i - 1)* max);
+        if (page > 0) {
+            int max = 8;
+            query.setMaxResults(max);
+            query.setFirstResult((page - 1) * max);
+        }
+        
+        
         
         return query.getResultList();
     }

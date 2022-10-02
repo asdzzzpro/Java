@@ -59,7 +59,7 @@ public class ApiNewsController {
     }
     @DeleteMapping("/api/listnews/{idNews}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delTour(@PathVariable(value = "idNews") int id){
+    public void delNews(@PathVariable(value = "idNews") int id){
         this.newsService.delNews(id);
     }
 }

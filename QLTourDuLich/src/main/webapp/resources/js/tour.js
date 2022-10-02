@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-/* global fetch, moment */
+/* global fetch, moment, tour */
 
 
 
@@ -60,7 +60,7 @@ function loadComment(endpoint) {
         
         </div>
         <br>
-        
+   
 </div>
             `
         }
