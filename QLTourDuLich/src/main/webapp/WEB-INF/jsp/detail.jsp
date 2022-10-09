@@ -17,8 +17,8 @@
         <div class="col-md-6">
             <h1>${tour.nameTour}</h1>
             <p>${tour.description}</p>
-            <h4>Giá người lớn: ${tour.adultprice} VND/Khách</h4>
-            <h4>Giá trẻ em: ${tour.childprice} VND/Khách</h4>
+            <h4>Giá: ${tour.adultprice} VND/Khách</h4>
+            
             <div>
                 <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
                 <!-- onclick="addToBooking()" -->

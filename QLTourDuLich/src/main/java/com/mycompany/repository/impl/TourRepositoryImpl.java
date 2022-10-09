@@ -97,13 +97,11 @@ public class TourRepositoryImpl implements TourRepository {
     @Override
     public boolean delTour(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-
         try {
-            Tour t = session.get(Tour.class, id);
-            session.delete(t);
+            session.delete(id);
             return true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }

@@ -15,7 +15,7 @@
         <tr>
             <th>Ma Tour</th>
             <th>Ten</th>
-            <th>Gia tre em</th>
+            
             <th>Gia nguoi lon</th>
             <th>So luong nguoi</th>
             <th></th>
@@ -24,7 +24,7 @@
             <tr>
                 <td>${b.idTour}</td>
                 <td>${b.nameTour}</td>
-                <td>${b.childprice} VND</td>
+                
                 <td>${b.adultprice} VND</td>
                 <td>
                     <div class="form-group">

@@ -30,7 +30,7 @@ CREATE TABLE `news` (
   `image` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `source` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`id_news`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `newscomment` (
 
 LOCK TABLES `newscomment` WRITE;
 /*!40000 ALTER TABLE `newscomment` DISABLE KEYS */;
-INSERT INTO `newscomment` VALUES (1,'blablabla',1,3,'2022-08-09 00:32:00');
+INSERT INTO `newscomment` VALUES (1,'blablabla',1,3,'2022-08-09 00:32:00'),(2,'test2',1,3,'2022-08-09 00:32:00');
 /*!40000 ALTER TABLE `newscomment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +212,7 @@ CREATE TABLE `tourcomment` (
   KEY `fk_comment_user_idx` (`user_id`),
   CONSTRAINT `fk_comment_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`idTour`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_comment_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,7 +221,7 @@ CREATE TABLE `tourcomment` (
 
 LOCK TABLES `tourcomment` WRITE;
 /*!40000 ALTER TABLE `tourcomment` DISABLE KEYS */;
-INSERT INTO `tourcomment` VALUES (1,'Chat luong tuyet voi',1,3,'2022-09-04 02:30:00'),(2,'Chat luong tuyet voi',1,3,'2022-09-04 16:12:16'),(3,'Chat luong tuyet voi',1,3,'2022-09-04 13:19:16'),(4,'Chat luong tuyet voi',2,3,'2022-09-04 11:27:16'),(5,'Rat tuyet',1,3,'2022-09-04 07:10:46'),(6,'Rat tuyet voi',1,3,'2022-09-04 16:19:16'),(23,'perfect',1,3,'2022-09-07 18:47:05'),(24,'grfweq3r',1,3,'2022-09-07 18:58:16'),(25,'43253',2,4,'2022-09-07 18:58:16'),(26,'133rqewtwr',2,3,'2022-09-07 23:49:23'),(27,'testarea',1,3,'2022-09-08 01:00:18'),(28,'testarea1',1,3,'2022-09-08 01:00:29'),(29,'3regsfbhtju6e6',1,3,'2022-09-08 01:41:01'),(30,'regrjyr6u4ut',1,3,'2022-09-08 01:41:13'),(31,'feewgwr',1,3,'2022-09-08 01:56:39'),(32,'quao',1,3,'2022-09-08 02:31:27'),(33,'test1',1,3,'2022-09-10 07:54:15');
+INSERT INTO `tourcomment` VALUES (1,'Chat luong tuyet voi',1,3,'2022-09-04 02:30:00'),(2,'Chat luong tuyet voi',1,3,'2022-09-04 16:12:16'),(3,'Chat luong tuyet voi',1,3,'2022-09-04 13:19:16'),(4,'Chat luong tuyet voi',2,3,'2022-09-04 11:27:16'),(5,'Rat tuyet',1,3,'2022-09-04 07:10:46'),(6,'Rat tuyet voi',1,3,'2022-09-04 16:19:16'),(23,'perfect',1,3,'2022-09-07 18:47:05'),(24,'grfweq3r',1,3,'2022-09-07 18:58:16'),(25,'43253',2,4,'2022-09-07 18:58:16'),(26,'133rqewtwr',2,3,'2022-09-07 23:49:23'),(27,'testarea',1,3,'2022-09-08 01:00:18'),(28,'testarea1',1,3,'2022-09-08 01:00:29'),(29,'3regsfbhtju6e6',1,3,'2022-09-08 01:41:01'),(30,'regrjyr6u4ut',1,3,'2022-09-08 01:41:13'),(31,'feewgwr',1,3,'2022-09-08 01:56:39'),(32,'quao',1,3,'2022-09-08 02:31:27'),(33,'test1',1,3,'2022-09-10 07:54:15'),(34,'1234556',3,3,'2022-10-02 13:52:46'),(35,'test3',3,3,'2022-10-02 13:55:56'),(36,'testbinhluan news',1,3,'2022-10-02 14:05:36'),(37,'test2binhluan',6,3,'2022-10-02 14:09:19');
 /*!40000 ALTER TABLE `tourcomment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +266,7 @@ CREATE TABLE `user` (
   `phone` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `userrole` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,4 +288,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-19 23:49:20
+-- Dump completed on 2022-10-09 15:49:35

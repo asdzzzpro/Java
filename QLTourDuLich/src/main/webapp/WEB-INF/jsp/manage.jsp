@@ -57,7 +57,7 @@
         <th></th>
         <th>Ten Tour</th>
         <th>Gia tre em</th>
-        <th>Gia nguoi lon</th>
+        
         <th></th>
     </tr>
     <tbody id="admin">

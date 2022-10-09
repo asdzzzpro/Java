@@ -10,10 +10,7 @@
     <input class="form-control me-3" type="text" name="kw" placeholder="Tìm điểm du lịch ...">
     <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
 </form>
-<form action="${action}" class="d-flex" style="padding: 5px">
-    <input class="form-control me-3" type="text" name="childPrice" placeholder="Giá trẻ em từ ....">
-    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
-</form>
+
 <form action="${action}" class="d-flex" style="padding: 5px">
     <input class="form-control me-3" type="text" name="adultPrice" placeholder="Giá người lớn từ ...">
     <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
@@ -41,11 +38,9 @@
                 <div class="card-body">
                     <h4 class="card-title">${t.nameTour}</h4>
                     <p class="card-text">
-                        Giá người lớn: <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND/khách
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND/khách
                     </p>
-                    <p class="card-text">
-                        Giá trẻ em: <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.childprice}" /> VND/khách
-                    </p>
+                    
                     <a href="<c:url value="/tours/${t.idTour}" />" class="btn btn-primary">Xem chi tiet</a>
                 </div>
             </div>

@@ -18,7 +18,7 @@ function loadAdmin(endpoint) {
                 <td></td>
                 <td>${data[i].nameTour}</td>
                 <td>${data[i].adultprice}</td>
-                <td>${data[i].childprice}</td>
+                
                 <td>
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idTour}"></div>
                     <button class="btn btn-danger" onclick='delTour("${endpoint + '/' + data[i].idTour}",${data[i].idTour})'>Xoa</button>
