@@ -95,9 +95,7 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     @JsonIgnore
     private Collection<Newscomment> newscommentCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    @JsonIgnore
-    private Collection<Receipt> receiptCollection;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     @JsonIgnore
     private Collection<Tourcomment> tourcommentCollection;
@@ -196,14 +194,6 @@ public class User implements Serializable {
         this.newscommentCollection = newscommentCollection;
     }
 
-    @XmlTransient
-    public Collection<Receipt> getReceiptCollection() {
-        return receiptCollection;
-    }
-
-    public void setReceiptCollection(Collection<Receipt> receiptCollection) {
-        this.receiptCollection = receiptCollection;
-    }
 
     @XmlTransient
     public Collection<Tourcomment> getTourcommentCollection() {

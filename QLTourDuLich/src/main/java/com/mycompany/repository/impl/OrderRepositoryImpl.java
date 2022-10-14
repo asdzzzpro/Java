@@ -34,36 +34,38 @@ public class OrderRepositoryImpl implements OrderRepository {
     private LocalSessionFactoryBean sessionFactory;
     @Autowired
     private TourRepository tourRepository;
-
+ 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public boolean addReceipt(Map<Integer, Booking> booking) {
+        
+        
         try {
             Session session = this.sessionFactory.getObject().getCurrentSession();
-            
-            Order1 order = new Order1();
-            order.setUserId(this.userRepository.getUserById(3));
-            order.setCreateddate(new Date());
-            Map<String, String> stats = Utils.stats(booking);
-            order.setTotal(Long.parseLong(stats.get("total")));
-            session.save(order);
+        
+            Order1 order1 = new Order1();
+            order1.setUserId(this.userRepository.getUserById(3));
+            order1.setCreateddate(new Date());
 
-            for (Booking b : booking.values()) {
-                OrderDetail d = new OrderDetail();
-                d.setOrderId(order);
-                d.setTourId(this.tourRepository.getTourById(b.getIdTour()));
-                d.setUnitprice(b.getAdultprice());
-                d.setNumber(b.getQuantityAdult());
-                session.save(d);
-                
+            Map<String, String> stats = Utils.stats(booking);
+            order1.setTotal(Long.parseLong(stats.get("total")));
+            session.save(order1);
+
+            for (Booking b: booking.values()){
+                OrderDetail od = new OrderDetail();
+                od.setOrderId(order1);
+                od.setTourId(this.tourRepository.getTourById(b.getIdTour()));
+                od.setUnitprice(b.getAdultprice());
+                od.setNumber(b.getQuantityAdult());
+
+                session.save(od);
             }
-            return true;
         } catch (HibernateException e) {
             e.printStackTrace();
         }
-
+        
         return false;
-
+        
     }
 
 }

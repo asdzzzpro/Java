@@ -49,15 +49,14 @@ public class NewsServiceImpl implements NewsService{
 
     @Override
     public Newscomment addNewscomment(String string, int i) {
-        
-        User u = this.userRepository.getUserById(3);
         News n = this.newsRepository.getNewsById(i);
-        Newscomment newscomment = new Newscomment();
-        newscomment.setContent(string);
-        newscomment.setUserId(u);
-        newscomment.setNewsId(n);
-        newscomment.setCreatedDate(new Date());
-        return this.newsRepository.addNewscomment(newscomment);
+        User u = this.userRepository.getUserById(3);
+        Newscomment cm = new Newscomment();
+        cm.setContent(string);
+        cm.setUserId(u);
+        cm.setNewsId(n);
+        cm.setCreatedDate(new Date());
+        return this.newsRepository.addNewscomment(cm);
     }
 
     @Override

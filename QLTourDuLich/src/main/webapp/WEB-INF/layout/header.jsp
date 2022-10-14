@@ -20,8 +20,8 @@
                     <a class="nav-link" href="<c:url value="/"/>">&#9969; Trang chu</a>
                 </li>
                 <c:forEach items="${type}" var="t">
-                    
-                        
+
+
                     <li class="nav-item">
                         <c:url value="/" var="tUrl">
                             <c:param name="typeId" value="${t.id}" />
@@ -59,7 +59,18 @@
                     </li>
                 </sec:authorize>
 
-                <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thong ke so luong</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thong ke doanh thu</a>
+                    </li>
+                </sec:authorize>
+
+                <sec:authorize access="hasRole('ROLE_CUSTOMER')">
                     <li class="nav-item">
                         <a class="nav-link " href="<c:url value="/booking"/>">
                             <i class="fas fa-car"></i></a>

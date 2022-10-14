@@ -18,21 +18,37 @@
             <h1>${tour.nameTour}</h1>
             <p>${tour.description}</p>
             <h4>Giá: ${tour.adultprice} VND/Khách</h4>
-            
-            <div>
-                <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
-                <!-- onclick="addToBooking()" -->
-            </div>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <div>
+                    <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
+                    <!-- onclick="addToBooking()" -->
+                </div>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <div>
+                    <p>Ban chua dang nhap</p>
+                    <a href="<c:url value="/login"/>" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px">Dang nhap ngay</a>
+                    
+                </div>
+            </c:if>
         </div>
     </div>
 </div>
+<c:url value="/api/add-tcomment" var="addcm" />
 <script src="<c:url value="/js/tour.js" />"></script>
 <form style="padding: 15px">
-    <div class="form-group">
-        <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>
-        <input type="submit" value="Binh luan" onclick="addComment(${tour.idTour})" class="btn btn-primary" style="margin: 7px"/>
-    </div>
+    <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <div class="form-group">
+            <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>
+            <input type="submit" value="Binh luan" onclick="addComment('${addcm}',${tour.idTour})" class="btn btn-primary" style="margin: 7px"/>
+        </div>
+    </c:if>
+    <c:if test="${pageContext.request.userPrincipal.name == null}">
+        <p style="margin: 7px; text-align: center; color: red; font-size: large">Dang nhap de binh luan ben duoi</p>
+    </c:if>
 </form>
+<c:url value="/api/${tour.idTour}/tourcomment" var="endpoint" />
+
 
     <ul id="tourcomment">
         
@@ -45,9 +61,9 @@
 
 <script src="<c:url value="/js/tour.js" />"></script>
 <script>
-    <c:url value="/api/tourcomment" var="tour" />
+    
     window.onload = function () {
-        loadComment('${tour}')
+        loadComment('${endpoint}')
     };
 
 </script>

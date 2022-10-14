@@ -16,6 +16,10 @@
     <li class="nav-item">
       <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thong ke doanh thu thoi gian</a>
     </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value="/"/>">Tro ve trang chu</a>
+    </li>
 
   </ul>
 

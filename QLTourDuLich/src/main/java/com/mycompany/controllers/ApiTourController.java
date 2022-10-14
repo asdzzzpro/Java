@@ -34,9 +34,9 @@ public class ApiTourController {
     @Autowired
     private TourService tourService;
     
-    @GetMapping("/api/tourcomment")
-    public ResponseEntity<List<Tourcomment>> getTourComment(){
-        return new ResponseEntity<>(this.tourCommentService.getComments(), HttpStatus.OK);
+    @GetMapping("/api/{idTour}/tourcomment")
+    public ResponseEntity<List<Tourcomment>> getTourComment(@PathVariable(value = "idTour") int idTour){
+        return new ResponseEntity<>(this.tourCommentService.getComments(idTour), HttpStatus.OK);
     }
     
 
@@ -47,7 +47,6 @@ public class ApiTourController {
         try {
             String content = params.get("content");
             int idTour = Integer.parseInt(params.get("idTour"));
-            
             Tourcomment cm = this.tourCommentService.addComment(content, idTour);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {

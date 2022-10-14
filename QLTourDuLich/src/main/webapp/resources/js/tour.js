@@ -7,8 +7,8 @@
 
 
 
-function addComment(idTour) {
-    fetch("/QLTourDuLich/api/add-tcomment", {
+function addComment(addcm, idTour) {
+    fetch(addcm, {
         method: "post",
         body: JSON.stringify({
             "content": document.getElementById("contentId").value,
@@ -144,6 +144,7 @@ function pay(){
     if(confirm("Ban co muon thanh toan ?") == true){
         fetch("/QLTourDuLich/api/pay",{
             method:"post"
+            
         }).then(function (res){
             return res.json();
         }).then(function (code){
@@ -152,3 +153,4 @@ function pay(){
         })
     }
 }
+

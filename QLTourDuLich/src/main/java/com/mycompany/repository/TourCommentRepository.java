@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface TourCommentRepository {
     Tourcomment addComment(Tourcomment t);
-    List<Tourcomment> getComments();
+    List<Tourcomment> getComments(int id);
 }

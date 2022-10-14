@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -39,12 +38,10 @@ public class OrderDetail implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-
     @Column(name = "unitprice")
     private Long unitprice;
     @Column(name = "number")
     private Integer number;
-    
     @JoinColumn(name = "order_id", referencedColumnName = "id_order")
     @ManyToOne(optional = false)
     private Order1 orderId;
@@ -67,13 +64,19 @@ public class OrderDetail implements Serializable {
         this.id = id;
     }
 
+    public Long getUnitprice() {
+        return unitprice;
+    }
 
+    public void setUnitprice(Long unitprice) {
+        this.unitprice = unitprice;
+    }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
@@ -116,20 +119,6 @@ public class OrderDetail implements Serializable {
     @Override
     public String toString() {
         return "com.mycompany.pojo.OrderDetail[ id=" + id + " ]";
-    }
-
-    /**
-     * @return the unitprice
-     */
-    public Long getUnitprice() {
-        return unitprice;
-    }
-
-    /**
-     * @param unitprice the unitprice to set
-     */
-    public void setUnitprice(Long unitprice) {
-        this.unitprice = unitprice;
     }
     
 }

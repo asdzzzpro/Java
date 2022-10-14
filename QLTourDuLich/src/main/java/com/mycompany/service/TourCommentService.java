@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface TourCommentService {
     Tourcomment addComment(String contentString, int idTour);
-    List<Tourcomment> getComments();
+    List<Tourcomment> getComments(int id);
 }

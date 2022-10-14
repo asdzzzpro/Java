@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -48,10 +49,9 @@ public class Order1 implements Serializable {
     @Column(name = "total")
     private Long total;
     @Column(name = "createddate")
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date createddate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
-    private Collection<Receipt> receiptCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
     private Collection<OrderDetail> orderDetailCollection;
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
@@ -59,7 +59,6 @@ public class Order1 implements Serializable {
     private User userId;
 
     public Order1() {
-        createddate = new Date();
     }
 
     public Order1(Integer idOrder) {
@@ -88,15 +87,6 @@ public class Order1 implements Serializable {
 
     public void setCreateddate(Date createddate) {
         this.createddate = createddate;
-    }
-
-    @XmlTransient
-    public Collection<Receipt> getReceiptCollection() {
-        return receiptCollection;
-    }
-
-    public void setReceiptCollection(Collection<Receipt> receiptCollection) {
-        this.receiptCollection = receiptCollection;
     }
 
     @XmlTransient

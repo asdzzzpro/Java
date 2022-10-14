@@ -14,6 +14,8 @@ import com.mycompany.service.TourCommentService;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,20 +32,22 @@ public class TourCommentServiceImpl implements TourCommentService{
     private TourCommentRepository tourCommentRepository;
     
     @Override
-    public Tourcomment addComment(String contenString, int idTour) {
+    public Tourcomment addComment(String content, int idTour) {
         Tour t = this.tourRepository.getTourById(idTour);
         User u = this.userRepository.getUserById(3);
         Tourcomment cm = new Tourcomment();
-        cm.setContent(contenString);
+        cm.setContent(content);
         cm.setUserId(u);
         cm.setTourId(t);
         cm.setCreatedDate(new Date());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        cm.setUserId(this.userRepository.getUserById(3));
         return this.tourCommentRepository.addComment(cm);
     }
 
     @Override
-    public List<Tourcomment> getComments() {
-        return this.tourCommentRepository.getComments();
+    public List<Tourcomment> getComments(int id) {
+        return this.tourCommentRepository.getComments(id);
     }
     
 }
