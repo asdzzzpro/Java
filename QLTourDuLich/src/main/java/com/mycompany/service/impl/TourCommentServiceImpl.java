@@ -34,14 +34,14 @@ public class TourCommentServiceImpl implements TourCommentService{
     @Override
     public Tourcomment addComment(String content, int idTour) {
         Tour t = this.tourRepository.getTourById(idTour);
-        User u = this.userRepository.getUserById(3);
+//        User u = this.userRepository.getUserById(3);
         Tourcomment cm = new Tourcomment();
         cm.setContent(content);
-        cm.setUserId(u);
+//        cm.setUserId(u);
         cm.setTourId(t);
         cm.setCreatedDate(new Date());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        cm.setUserId(this.userRepository.getUserById(3));
+        cm.setUserId(this.userRepository.getUserByUsername(authentication.getName().toString()));
         return this.tourCommentRepository.addComment(cm);
     }
 

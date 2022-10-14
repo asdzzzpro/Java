@@ -15,4 +15,5 @@ public interface UserRepository {
     boolean addUser(User user);
     List<User> getUsers(String username);
     User getUserById(int idUser);
+    User getUserByUsername(String username);
 }
