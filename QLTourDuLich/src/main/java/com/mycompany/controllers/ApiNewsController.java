@@ -30,9 +30,10 @@ public class ApiNewsController {
     @Autowired
     private NewsService newsService;
     
-    @GetMapping("/api/newscomment")
-    public ResponseEntity<List<Newscomment>> getNewsComment(){
-        return new ResponseEntity<>(this.newsService.getComments(), HttpStatus.OK);
+    @GetMapping("/api/newscomment/{idNews}")
+    public ResponseEntity<List<Newscomment>> getNewsComment(@PathVariable(value = "idNews") int idNews){
+;
+        return new ResponseEntity<>(this.newsService.getComments(idNews), HttpStatus.OK);
     }
     
     @PostMapping(path = "/api/add-ncomment",produces = {

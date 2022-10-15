@@ -91,9 +91,16 @@ public class NewsRepositoryImpl implements NewsRepository{
     }
 
     @Override
-    public List<Newscomment> getComments() {
+    public List<Newscomment> getComments(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query query = session.createQuery("From Newscomment");
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Newscomment> q = b.createQuery(Newscomment.class);
+        Root<Newscomment> root = q.from(Newscomment.class);
+        q.select(root);
+        q.where(b.equal(root.get("newsId").get("idNews"), id));
+        q.orderBy(b.desc(root.get("createdDate")));
+        javax.persistence.Query query = session.createQuery(q);
+
         return query.getResultList();
     }
     

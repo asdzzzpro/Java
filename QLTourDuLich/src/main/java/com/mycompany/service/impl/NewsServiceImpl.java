@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -50,18 +52,20 @@ public class NewsServiceImpl implements NewsService{
     @Override
     public Newscomment addNewscomment(String string, int i) {
         News n = this.newsRepository.getNewsById(i);
-        User u = this.userRepository.getUserById(3);
+//        User u = this.userRepository.getUserById(3);
         Newscomment cm = new Newscomment();
         cm.setContent(string);
-        cm.setUserId(u);
+//        cm.setUserId(u);
         cm.setNewsId(n);
         cm.setCreatedDate(new Date());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        cm.setUserId(this.userRepository.getUserByUsername(authentication.getName().toString()));
         return this.newsRepository.addNewscomment(cm);
     }
 
     @Override
-    public List<Newscomment> getComments() {
-        return this.newsRepository.getComments();
+    public List<Newscomment> getComments(int id) {
+        return this.newsRepository.getComments(id);
     }
 
 

@@ -43,7 +43,7 @@ function addComment(idNews) {
         method: "post",
         body: JSON.stringify({
             "content": document.getElementById("contentId").value,
-            "idTour": idNews
+            "idNews": idNews
         }),
         headers: {
             "Content-Type": "application/json"

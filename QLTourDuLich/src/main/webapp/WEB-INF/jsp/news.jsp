@@ -37,18 +37,20 @@
         <p style="margin: 7px; text-align: center; color: red; font-size: large">Dang nhap de binh luan ben duoi</p>
     </c:if>
 </form>
-
+ 
 <script src="<c:url value="/js/news.js" />"></script>
     <ul id="newscomment">
         
     </ul>
-            
+        
+<c:url value="/api/newscomment/${news.idNews}" var="endpoint"/>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
 
 <script>
-    <c:url value="/api/newscomment" var="news" />
+    
     window.onload = function () {
-        loadComment('${news}')
+        
+        loadComment('${endpoint}')
     };
 
 </script>
