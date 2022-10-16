@@ -3,18 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-function colors(){
-    let red  = parseInt(Math.random()*255);
-    let green  = parseInt(Math.random()*255);
-    let blue  = parseInt(Math.random()*255);
+function colors() {
+    let red = parseInt(Math.random() * 255);
+    let green = parseInt(Math.random() * 255);
+    let blue = parseInt(Math.random() * 255);
     return `rgb(${red},${green},${blue})`
 }
 
-function tourStats(id, labels=[], info=[]) {
+function tourStats(id, labels = [], info = []) {
     let color = []
-    for (let i=0; i< info.length; i++)
+    for (let i = 0; i < info.length; i++)
         color.push(colors())
-        
+
     const data = {
         labels: labels,
         datasets: [{
@@ -30,32 +30,38 @@ function tourStats(id, labels=[], info=[]) {
         type: 'pie',
         data: data,
     };
-    
+
     let ch = document.getElementById(id).getContext("2d")
     new Chart(ch, config)
 }
 
-function revenueChart(id, rlabels=[], rinfo=[]){
+function revenueChart(id, rlabels = [], rinfo = []) {
     let color = []
-    for (let i=0; i< rinfo.length; i++)
+    for (let i = 0; i < rinfo.length; i++)
         color.push(colors())
-        
+
     const data = {
         labels: rlabels,
         datasets: [{
+                axis: 'y',
                 label: 'Thong ke doanh tour du lich',
                 data: rinfo,
+                fill: false,
                 backgroundColor: color,
-                hoverOffset: 4
+                borderColor: color,
+                borderWidth: 1
             }]
     };
 
 
     const config = {
-        type: 'line',
-        data: data,
+        type: 'bar',
+        data,
+        options: {
+            indexAxis: 'y',
+        }
     };
-    
+
     let ch = document.getElementById(id).getContext("2d")
     new Chart(ch, config)
 }

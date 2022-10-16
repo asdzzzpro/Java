@@ -42,6 +42,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
     @NamedQuery(name = "User.findByUserrole", query = "SELECT u FROM User u WHERE u.userrole = :userrole")})
 public class User implements Serializable {
+
+    
     
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String USER = "ROLE_USER";
@@ -99,9 +101,10 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     @JsonIgnore
     private Collection<Tourcomment> tourcommentCollection;
+
     @OneToMany(mappedBy = "userId")
     @JsonIgnore
-    private Collection<Order1> order1Collection;
+    private Collection<Receipt> receiptCollection;
 
     public User() {
     }
@@ -203,16 +206,7 @@ public class User implements Serializable {
     public void setTourcommentCollection(Collection<Tourcomment> tourcommentCollection) {
         this.tourcommentCollection = tourcommentCollection;
     }
-
-    @XmlTransient
-    public Collection<Order1> getOrder1Collection() {
-        return order1Collection;
-    }
-
-    public void setOrder1Collection(Collection<Order1> order1Collection) {
-        this.order1Collection = order1Collection;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -250,6 +244,15 @@ public class User implements Serializable {
      */
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    @XmlTransient
+    public Collection<Receipt> getReceiptCollection() {
+        return receiptCollection;
+    }
+
+    public void setReceiptCollection(Collection<Receipt> receiptCollection) {
+        this.receiptCollection = receiptCollection;
     }
 
     

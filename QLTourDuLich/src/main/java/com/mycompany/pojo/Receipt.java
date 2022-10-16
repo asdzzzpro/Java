@@ -22,7 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -31,14 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Qhuy
  */
 @Entity
-@Table(name = "order")
+@Table(name = "receipt")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Order1.findAll", query = "SELECT o FROM Order1 o"),
-    @NamedQuery(name = "Order1.findByIdOrder", query = "SELECT o FROM Order1 o WHERE o.idOrder = :idOrder"),
-    @NamedQuery(name = "Order1.findByTotal", query = "SELECT o FROM Order1 o WHERE o.total = :total"),
-    @NamedQuery(name = "Order1.findByCreateddate", query = "SELECT o FROM Order1 o WHERE o.createddate = :createddate")})
-public class Order1 implements Serializable {
+    @NamedQuery(name = "Receipt.findAll", query = "SELECT r FROM Receipt r"),
+    @NamedQuery(name = "Receipt.findByIdOrder", query = "SELECT r FROM Receipt r WHERE r.idOrder = :idOrder"),
+    @NamedQuery(name = "Receipt.findByTotal", query = "SELECT r FROM Receipt r WHERE r.total = :total"),
+    @NamedQuery(name = "Receipt.findByCreateddate", query = "SELECT r FROM Receipt r WHERE r.createddate = :createddate")})
+public class Receipt implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,19 +48,18 @@ public class Order1 implements Serializable {
     @Column(name = "total")
     private Long total;
     @Column(name = "createddate")
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date createddate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
-    private Collection<OrderDetail> orderDetailCollection;
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     @ManyToOne
     private User userId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
+    private Collection<OrderDetail> orderDetailCollection;
 
-    public Order1() {
+    public Receipt() {
     }
 
-    public Order1(Integer idOrder) {
+    public Receipt(Integer idOrder) {
         this.idOrder = idOrder;
     }
 
@@ -89,6 +87,14 @@ public class Order1 implements Serializable {
         this.createddate = createddate;
     }
 
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
     @XmlTransient
     public Collection<OrderDetail> getOrderDetailCollection() {
         return orderDetailCollection;
@@ -96,14 +102,6 @@ public class Order1 implements Serializable {
 
     public void setOrderDetailCollection(Collection<OrderDetail> orderDetailCollection) {
         this.orderDetailCollection = orderDetailCollection;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
     }
 
     @Override
@@ -116,10 +114,10 @@ public class Order1 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Order1)) {
+        if (!(object instanceof Receipt)) {
             return false;
         }
-        Order1 other = (Order1) object;
+        Receipt other = (Receipt) object;
         if ((this.idOrder == null && other.idOrder != null) || (this.idOrder != null && !this.idOrder.equals(other.idOrder))) {
             return false;
         }
@@ -128,7 +126,7 @@ public class Order1 implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.pojo.Order1[ idOrder=" + idOrder + " ]";
+        return "com.mycompany.pojo.Receipt[ idOrder=" + idOrder + " ]";
     }
     
 }

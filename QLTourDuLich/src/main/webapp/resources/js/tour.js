@@ -150,6 +150,7 @@ function pay(){
         }).then(function (code){
             console.info(code);
             location.reload();
+            alert("Thanh toan thanh cong")
         })
     }
 }

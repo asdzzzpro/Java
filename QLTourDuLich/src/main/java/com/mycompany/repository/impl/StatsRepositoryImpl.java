@@ -4,7 +4,6 @@
  */
 package com.mycompany.repository.impl;
 
-import com.mycompany.pojo.Order1;
 import com.mycompany.pojo.OrderDetail;
 import com.mycompany.pojo.Tour;
 import com.mycompany.pojo.Type;

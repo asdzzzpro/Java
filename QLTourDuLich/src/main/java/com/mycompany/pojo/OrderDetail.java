@@ -44,7 +44,7 @@ public class OrderDetail implements Serializable {
     private Integer number;
     @JoinColumn(name = "order_id", referencedColumnName = "id_order")
     @ManyToOne(optional = false)
-    private Order1 orderId;
+    private Receipt orderId;
     @JoinColumn(name = "tour_id", referencedColumnName = "idTour")
     @ManyToOne(optional = false)
     private Tour tourId;
@@ -80,11 +80,11 @@ public class OrderDetail implements Serializable {
         this.number = number;
     }
 
-    public Order1 getOrderId() {
+    public Receipt getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Order1 orderId) {
+    public void setOrderId(Receipt orderId) {
         this.orderId = orderId;
     }
 

@@ -5,8 +5,9 @@
 package com.mycompany.repository.impl;
 
 import com.mycompany.pojo.Booking;
-import com.mycompany.pojo.Order1;
+
 import com.mycompany.pojo.OrderDetail;
+import com.mycompany.pojo.Receipt;
 import com.mycompany.repository.OrderRepository;
 import com.mycompany.repository.TourRepository;
 import com.mycompany.repository.UserRepository;
@@ -17,6 +18,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,23 +46,24 @@ public class OrderRepositoryImpl implements OrderRepository {
         try {
             Session session = this.sessionFactory.getObject().getCurrentSession();
         
-            Order1 order1 = new Order1();
-            order1.setUserId(this.userRepository.getUserById(3));
-            order1.setCreateddate(new Date());
-
+            Receipt receipt = new Receipt();
+            receipt.setCreateddate(new Date());
             Map<String, String> stats = Utils.stats(booking);
-            order1.setTotal(Long.parseLong(stats.get("total")));
-            session.save(order1);
+            receipt.setTotal(Long.parseLong(stats.get("total")));
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            receipt.setUserId(this.userRepository.getUserByUsername(authentication.getName().toString()));
+            session.save(receipt);
 
             for (Booking b: booking.values()){
                 OrderDetail od = new OrderDetail();
-                od.setOrderId(order1);
+                od.setOrderId(receipt);
                 od.setTourId(this.tourRepository.getTourById(b.getIdTour()));
                 od.setUnitprice(b.getAdultprice());
                 od.setNumber(b.getQuantityAdult());
 
                 session.save(od);
             }
+            return true;
         } catch (HibernateException e) {
             e.printStackTrace();
         }
