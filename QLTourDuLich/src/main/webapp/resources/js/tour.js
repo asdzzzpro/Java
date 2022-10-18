@@ -72,7 +72,7 @@ function loadComment(endpoint) {
 
 
 
-function addToBooking(idTour, nameTour, childprice, adultprice) {
+function addToBooking(idTour, nameTour, adultprice, childprice) {
     event.preventDefault();
     fetch("/QLTourDuLich/api/booking", {
         method: "post",
