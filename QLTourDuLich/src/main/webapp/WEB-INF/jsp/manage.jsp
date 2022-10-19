@@ -18,25 +18,25 @@
 
 <form:form method="post" action="${action}" modelAttribute="tours" >
     <div class="form-group">
-        <label for="nameTour">Ten Tour</label>
+        <label for="nameTour">Tên chuyến đi</label>
         <form:input type="text" id="nameTour" path="nameTour" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="description">Mo ta</label>
+        <label for="description">Mô tả</label>
         <form:input type="text" id="description" path="description" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="childprice">Gia tre em</label>
+        <label for="childprice">Giá trẻ em</label>
         <form:input type="text" id="childprice" path="childprice" class="form-control"/>
         <form:errors path="childprice" cssClass="text-danger" element="div" /> 
     </div>
     <div class="form-group">
-        <label for="adultprice">Gia nguoi lon</label>
+        <label for="adultprice">Giá người lớn</label>
         <form:input type="text" id="adultprice" path="adultprice" class="form-control"/>
         <form:errors path="adultprice" cssClass="text-danger" element="div" /> 
     </div>
     <div class="form-group">
-        <label for="type">Loai</label>
+        <label for="type">Loại hình</label>
         <form:select id="id" path="typeId" cssClass="form-select">
             <c:forEach items="${type}" var="t">
                 <option value="${t.id}">${t.name}</option>
@@ -47,16 +47,16 @@
     </div>
     <br>
     <div class="form-group">
-        <input type="submit" value="Them" class="btn btn-danger"/>
+        <input type="submit" value="Thêm" class="btn btn-danger"/>
     </div>
 </form:form>    
-    
-<div class="spinner-border text-secondary" id="load"></div>
+    <br><br>
+<!--<div class="spinner-border text-secondary" id="load"></div>-->
 <table class="table table-hover">
     <tr>
         <th></th>
-        <th>Ten Tour</th>
-        <th>Gia tre em</th>
+        <th>Tên chuyến đi</th>
+        <th>Đơn giá</th>
         
         <th></th>
     </tr>

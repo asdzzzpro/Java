@@ -6,13 +6,13 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1>Thong ke tour du lich theo nhom</h1>
+<h1>Thống kê số lượng tour du lịch theo loại hình</h1>
 
 <table class="table table-hover">
     <tr>
-        <th>Ma</th>
-        <th>Ten loai hinh</th>
-        <th>So luong</th>
+        <th>Mã</th>
+        <th>Tên loại hình</th>
+        <th>Số lượng</th>
         
     </tr>
     <c:forEach items="${tourstats}" var="t">

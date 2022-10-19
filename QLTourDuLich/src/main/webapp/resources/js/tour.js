@@ -26,7 +26,7 @@ function addComment(addcm, idTour) {
         a.innerHTML = `
         <div class="row">
             <div class="col-md-2" style="padding: 5px">
-                <img class="rounded-circle img-fluid" src="<c:url value="/resources/images/default.png"/>">
+                <img class="rounded-circle img-fluid" src="<c:url value="/images/default.png"/>">
             </div>
             <div class="col-md-10 date">
                 <p>${data.content}</p>
@@ -50,11 +50,11 @@ function loadComment(endpoint) {
     
         <div class="row">
             <div class="col-md-2" style="padding: 5px">
-                <img class="rounded-circle img-fluid" src="<c:url value='/resources/images/default.png'/>">
+                <img class="rounded-circle img-fluid" src="<c:url value='/images/default.png'/>">
             </div>
             <div class="col-md-10 date">
                 <p>${c.content}</p>
-                <p>duoc binh luan boi ${c.user.username}</p>
+                <p>được bình luận bởi ${c.user.username}</p>
                 <i>${moment(c.createdDate).locale("vi").fromNow()}</i>
             </div>
         
@@ -124,7 +124,7 @@ function updateBooking(obj, idTour) {
 }
 
 function delBooking(idTour) {
-    if (confirm("Ban co chac muon huy tour nay khong ?") == true) {
+    if (confirm("Bạn có chắc muốn hủy tour này không ?") == true) {
         fetch(`/QLTourDuLich/api/booking/${idTour}`, {
             method: "delete"
         }).then(function (res) {
@@ -141,7 +141,7 @@ function delBooking(idTour) {
 }
 
 function pay(){
-    if(confirm("Ban co muon thanh toan ?") == true){
+    if(confirm("Xác nhận thanh toán ?") == true){
         fetch("/QLTourDuLich/api/pay",{
             method:"post"
             
@@ -150,7 +150,7 @@ function pay(){
         }).then(function (code){
             console.info(code);
             location.reload();
-            alert("Thanh toan thanh cong")
+            alert("Thanh toán thành công!!")
         })
     }
 }

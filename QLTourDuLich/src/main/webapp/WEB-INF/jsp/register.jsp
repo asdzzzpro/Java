@@ -18,11 +18,11 @@
 
 <form:form method="post" action="${action}" modelAttribute="user">
     <div class="form-group">
-        <label for="firstname">Ho</label>
+        <label for="firstname">Họ</label>
         <form:input type="text" id="firstname" path="firstName" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="lastname">Ten</label>
+        <label for="lastname">Tên</label>
         <form:input type="text" id="lastname" path="lastName" class="form-control"/>
     </div>
     <div class="form-group">
@@ -30,23 +30,23 @@
         <form:input type="email" id="email" path="email" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="phone">SDT</label>
+        <label for="phone">Số điện thoại</label>
         <form:input type="text" id="phone" path="phone" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="username">Ten dang nhap</label>
+        <label for="username">Tên đăng nhập</label>
         <form:input type="text" id="username" path="username" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="password">Mat khau</label>
+        <label for="password">Mật khẩu</label>
         <form:input type="password" id="password" path="password" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="confirm-password">Xac nhan mat khau</label>
+        <label for="confirm-password">Xác nhận mật khẩu</label>
         <form:input type="password" id="confirm-password" path="confirmPassword" class="form-control"/>
     </div>
     
     <div class="form-group">
-        <input type="submit" value="Dang ky" class="btn btn-danger"/>
+        <input type="submit" value="Đăng ký" class="btn btn-danger"/>
     </div>
 </form:form>    

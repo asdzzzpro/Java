@@ -11,14 +11,14 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thong ke so luong tour du lich theo nhom</a>
+        <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thống kê số lượng tour du lịch theo loại hình</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thong ke doanh thu thoi gian</a>
+      <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thống kê doanh thu theo tour du lịch</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="<c:url value="/"/>">Tro ve trang chu</a>
+      <a class="nav-link" href="<c:url value="/"/>">Trở về trang chủ</a>
     </li>
 
   </ul>

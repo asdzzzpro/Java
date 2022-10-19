@@ -22,7 +22,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
-        <h1 class="text-center text-danger">Trang Thong Ke</h1>
+        <h1 class="text-center text-danger">Trang Thống Kê</h1>
         <br>
         <div class="container">
             <div class="row">

@@ -29,12 +29,12 @@
 <form style="padding: 15px">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <div class="form-group">
-            <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>
-            <input type="submit" onclick="addComment(${news.idNews})" value="Binh luan" class="btn btn-primary" style="margin: 7px"/>
+            <textarea class="form-control" id="contentId" placeholder="Thêm bình luận của bạn..."></textarea>
+            <input type="submit" onclick="addComment(${news.idNews})" value="Bình luận" class="btn btn-primary" style="margin: 7px"/>
         </div>
     </c:if>
     <c:if test="${pageContext.request.userPrincipal.name == null}">
-        <p style="margin: 7px; text-align: center; color: red; font-size: large">Dang nhap de binh luan ben duoi</p>
+        <p style="margin: 7px; text-align: center; color: red; font-size: large">Đăng nhập để bình luận phía bên dưới</p>
     </c:if>
 </form>
  

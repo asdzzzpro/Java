@@ -23,7 +23,7 @@ function loadComment(endpoint){
             </div>
             <div class="col-md-10 date">
                 <p>${n.content}</p>
-                <p>duoc binh luan boi ${n.user.username}</p>
+                <p>được bình luận bởi ${n.user.username}</p>
                 <i>${moment(n.createdDate).locale("vi").fromNow()}</i>
             </div>
         

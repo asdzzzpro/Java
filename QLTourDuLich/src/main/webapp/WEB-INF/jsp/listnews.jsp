@@ -12,34 +12,34 @@
 
 <form:form method="post" action="${action}" modelAttribute="newses">
     <div class="form-group">
-        <label for="title">Tieu de</label>
+        <label for="title">Tiêu đề</label>
         <form:input type="text" id="title" path="title" width="100px" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="content">Noi dung</label>
+        <label for="content">Nội dung</label>
         <form:input type="text" id="content" path="content" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="image">hinh anh</label>
+        <label for="image">Hình ảnh</label>
         <form:input type="text" id="image" path="image" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="source">Nguon</label>
+        <label for="source">Nguồn</label>
         <form:input type="text" id="source" path="source" class="form-control"/>
     </div>
     <br>
     <div class="form-group">
-        <input type="submit" value="Them" class="btn btn-danger"/>
+        <input type="submit" value="Thêm" class="btn btn-danger"/>
     </div>
 </form:form>
 
 <table class="table table-hover">
     <tr>
         <th></th>
-        <th>Tieu de</th>
-        <th>Noi Dung tin</th>
-        <th>hinh anh</th>
-        <th>Nguon</th>
+        <th>Tiêu đề</th>
+        <th>Nội dung tin</th>
+        <th>Hình ảnh</th>
+        <th>Nguồn</th>
         <th></th>
     </tr>
     <tbody id="listnews">

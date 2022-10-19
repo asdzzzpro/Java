@@ -1,0 +1,12 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 thg 10, 2022, 23:38:13
+    Author     : Qhuy
+*/
+
+footer {
+     min-height: calc(100vh-50px)
+ }

@@ -18,7 +18,7 @@ function tourStats(id, labels = [], info = []) {
     const data = {
         labels: labels,
         datasets: [{
-                label: 'Thong ke loai hinh tour du lich',
+                label: 'Thống kê loại hình du lịch',
                 data: info,
                 backgroundColor: color,
                 hoverOffset: 4
@@ -44,7 +44,7 @@ function revenueChart(id, rlabels = [], rinfo = []) {
         labels: rlabels,
         datasets: [{
                 axis: 'y',
-                label: 'Thong ke doanh tour du lich',
+                label: 'Thống kê doanh thu theo tour du lịch',
                 data: rinfo,
                 fill: false,
                 backgroundColor: color,

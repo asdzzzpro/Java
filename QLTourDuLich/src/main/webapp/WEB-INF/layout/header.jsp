@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/"/>">&#9969; Trang chu</a>
+                    <a class="nav-link" href="<c:url value="/"/>">&#9969; Trang chủ</a>
                 </li>
                 <c:forEach items="${type}" var="t">
 
@@ -31,10 +31,10 @@
                 </c:forEach>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/login"/>">&#9968; Dang nhap</a>
+                        <a class="nav-link" href="<c:url value="/login"/>">&#9968; Đăng nhập</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/register"/>">Dang ky</a>
+                        <a class="nav-link" href="<c:url value="/register"/>">Đăng ký</a>
                     </li>
                 </c:if>
 
@@ -43,25 +43,25 @@
                         <a class="nav-link" href="<c:url value="/"/>">${pageContext.request.userPrincipal.name}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/logout"/>">Logout</a>
+                        <a class="nav-link" href="<c:url value="/logout"/>">Đăng xuất</a>
                     </li>
                 </c:if>
 
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/admin/manage"/>">Quan ly Tour</a>
+                        <a class="nav-link" href="<c:url value="/admin/manage"/>">Quản lý Tour</a>
                     </li>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/admin/listnews"/>">Quan ly tin tuc</a>
+                        <a class="nav-link" href="<c:url value="/admin/listnews"/>">Quản lý tin tức</a>
                     </li>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thong ke so luong</a>
+                        <a class="nav-link" href="<c:url value="/admin/tour-stats"/>">Thống kê số lượng</a>
                     </li>
                 </sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">

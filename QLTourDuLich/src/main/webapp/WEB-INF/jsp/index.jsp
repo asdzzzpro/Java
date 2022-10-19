@@ -8,16 +8,16 @@
 <c:url value="/" var="action" />
 <form action="${action}" class="d-flex" style="padding: 5px">
     <input class="form-control me-3" type="text" name="kw" placeholder="Tìm điểm du lịch ...">
-    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
+    <button type="submit" class="btn btn-primary" type="button">Tìm kiếm</button>
 </form>
 
 <form action="${action}" class="d-flex" style="padding: 5px">
     <input class="form-control me-3" type="text" name="adultPrice" placeholder="Giá người lớn từ ...">
-    <button type="submit" class="btn btn-primary" type="button">Tim kiem</button>
+    <button type="submit" class="btn btn-primary" type="button">Tìm kiếm</button>
 </form>
 
 <div>
-    <p>So luong tour: ${count}</p>
+    <p>Số lượng tour: ${count}</p>
     <ul class="pagination">
         <c:forEach begin="1" end="${Math.ceil(count/8)}" var="i">
             <li class="page-item"><a class="page-link" href="<c:url value="/"/>?page=${i}">${i}</a></li>
@@ -38,10 +38,10 @@
                 <div class="card-body">
                     <h4 class="card-title">${t.nameTour}</h4>
                     <p class="card-text">
-                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND/khách
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND/Khách
                     </p>
                     
-                    <a href="<c:url value="/tours/${t.idTour}" />" class="btn btn-primary">Xem chi tiet</a>
+                    <a href="<c:url value="/tours/${t.idTour}" />" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>
         </div>
@@ -61,9 +61,9 @@
         <div class="mda-caption col-md-5 col-xs-10">
             <h4 class="mda-box-des">${n.title}</h4>
 
-            <p>Source: <a>${n.source}</a></p>
+            <p>Nguồn: <a>${n.source}</a></p>
 
-            <a href="<c:url value="news/${n.idNews}" />" class="btn btn-primary">Xem chi tiet</a>
+            <a href="<c:url value="news/${n.idNews}" />" class="btn btn-primary">Tìm hiểu thêm</a>
         </div>
 
         <hr>

@@ -20,14 +20,14 @@
             <h4>Giá: ${tour.adultprice} VND/Khách</h4>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <div>
-                    <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Dat Ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
+                    <input type="button" onclick="addToBooking(${tour.idTour},'${tour.nameTour}',${tour.adultprice},${tour.childprice})" value="Đặt ngay"  class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px"/>
                     <!-- onclick="addToBooking()" -->
                 </div>
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <div>
-                    <p>Ban chua dang nhap</p>
-                    <a href="<c:url value="/login"/>" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px">Dang nhap ngay</a>
+                    <p>Bạn chưa đăng nhập</p>
+                    <a href="<c:url value="/login"/>" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px">Đăng nhập ngay</a>
                     
                 </div>
             </c:if>
@@ -39,12 +39,12 @@
 <form style="padding: 15px">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <div class="form-group">
-            <textarea class="form-control" id="contentId" placeholder="Them binh luan cua ban..."></textarea>
-            <input type="submit" value="Binh luan" onclick="addComment('${addcm}',${tour.idTour})" class="btn btn-primary" style="margin: 7px"/>
+            <textarea class="form-control" id="contentId" placeholder="Thêm bình luận của bạn..."></textarea>
+            <input type="submit" value="Bình luận" onclick="addComment('${addcm}',${tour.idTour})" class="btn btn-primary" style="margin: 7px"/>
         </div>
     </c:if>
     <c:if test="${pageContext.request.userPrincipal.name == null}">
-        <p style="margin: 7px; text-align: center; color: red; font-size: large">Dang nhap de binh luan ben duoi</p>
+        <p style="margin: 7px; text-align: center; color: red; font-size: large">Đăng nhập để bình luận phía bên dưới</p>
     </c:if>
 </form>
 <c:url value="/api/${tour.idTour}/tourcomment" var="endpoint" />

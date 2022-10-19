@@ -9,14 +9,14 @@
 
 <c:if test="${param.error != null}">
     <div class="alert alert-danger">
-        <p>Da co loi xay ra</p>
+        <p>Đã có lỗi xảy ra</p>
     </div>
     
 </c:if>
 
 <c:if test="${param.acessDenied != null}">
     <div class="alert alert-danger">
-        <p>Chi Admin moi co quyen truy cap chuc nang nay</p>
+        <p>Chỉ Admin mới có quyền truy cập chức năng này</p>
     </div>
     
 </c:if>
@@ -25,14 +25,15 @@
 
 <form method="post" action="${action}">
     <div class="form-group">
-        <label for="username">Ten dang nhap</label>
+        <label for="username">Tên đăng nhập</label>
         <input type="text" id="username" name="username" class="form-control"/>
     </div>
     <div class="form-group">
-        <label for="password">Mat khau</label>
+        <label for="password">Mật khẩu</label>
         <input type="password" id="password" name="password" class="form-control"/>
     </div>
+    <br>
     <div class="form-group">
-        <input type="submit" value="Dang nhap" class="btn btn-danger"/>
+        <input type="submit" value="Đăng nhập" class="btn btn-danger"/>
     </div>
 </form>

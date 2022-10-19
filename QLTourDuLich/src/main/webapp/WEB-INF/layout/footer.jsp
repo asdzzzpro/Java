@@ -6,7 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>Tour Service</h1>
-    <p>Qhuy &copy; 2022</p>
-</div>
+
+<footer>
+    <div class="mt-4 p-5 bg-primary text-white">
+        <h1>Tour Service</h1>
+        <p>Qhuy &copy; 2022</p>
+    </div>
+</footer>

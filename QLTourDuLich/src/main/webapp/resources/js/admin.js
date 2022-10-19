@@ -21,7 +21,7 @@ function loadAdmin(endpoint) {
                 
                 <td>
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idTour}"></div>
-                    <button class="btn btn-danger" onclick='delTour("${endpoint + '/' + data[i].idTour}",${data[i].idTour})'>Xoa</button>
+                    <button class="btn btn-danger" onclick='delTour("${endpoint + '/' + data[i].idTour}",${data[i].idTour})'>Xóa</button>
                     
                 </td>
             </tr>
@@ -49,7 +49,7 @@ function loadNews(endpoint) {
                 <td>${data[i].source}</td>
                 <td> 
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].idNews}"></div>
-                    <button class="btn btn-danger" onclick='delNews("${endpoint + '/' + data[i].idNews}",${data[i].idNews})'>Xoa</button>         
+                    <button class="btn btn-danger" onclick='delNews("${endpoint + '/' + data[i].idNews}",${data[i].idNews})'>Xóa</button>         
                 </td>
             </tr>
 `
@@ -62,7 +62,7 @@ function loadNews(endpoint) {
 function delTour(endpoint, id) {
     let d = document.getElementById("load" + id);
     d.style.display = "block";
-    if (confirm("Ban co chac muon xoa tour nay khong ?") == true) {
+    if (confirm("Bạn có chắc muốn xóa tour này không ?") == true) {
         fetch(endpoint, {
             method: "delete"
         }).then(function (res) {
@@ -77,7 +77,7 @@ function delTour(endpoint, id) {
 function delNews(endpoint, id) {
     let d = document.getElementById("load" + id);
     d.style.display = "block";
-    if (confirm("Ban co chac muon xoa tin nay khong ?") == true) {
+    if (confirm("Bạn có chắc muốn xóa tin này không ?") == true) {
         fetch(endpoint, {
             method: "delete"
         }).then(function (res) {
