@@ -36,4 +36,7 @@
         tourStats("tourStatsChart",labels, info)
     }
 </script>
-<canvas id="tourStatsChart" width="200" height="200"></canvas>
+<div style= "width: 500px; height:500px;">
+    <canvas id="tourStatsChart" ></canvas>
+</div>
+

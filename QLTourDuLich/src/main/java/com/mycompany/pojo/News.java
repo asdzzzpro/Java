@@ -62,7 +62,7 @@ public class News implements Serializable {
     @Size(min = 1, max = 10000)
     @Column(name = "content")
     private String content;
-    @Size(max = 45)
+    @Size(max = 200)
     @Column(name = "image")
     private String image;
     @Size(max = 45)

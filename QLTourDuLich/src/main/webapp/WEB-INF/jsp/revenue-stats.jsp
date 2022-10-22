@@ -37,4 +37,7 @@
         revenueChart("revenueStatsChart",rlabels, rinfo)
     }
 </script>
-<canvas id="revenueStatsChart" width="200" height="200"></canvas>
+
+<div style="width: 800px; height: 500px">
+    <canvas id="revenueStatsChart"></canvas>
+</div>
