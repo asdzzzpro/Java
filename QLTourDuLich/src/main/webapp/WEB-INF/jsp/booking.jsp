@@ -6,9 +6,11 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1>Dat Tour Du Lich</h1>
+<h1>Giỏ hàng</h1>
 <c:if test="${booking ==null}">
-    <p class="text-danger">Không có sản phẩm nào trong giỏ</p>
+    <p class="text-danger text-center">Giỏ hàng của bạn còn trống</p>
+    <a href="<c:url value="/"/>" class="btn btn-outline-danger btn-lg" style="width: 300px; height: 50px; margin: auto; display: block">Mua ngay</a>
+    <br><br>
 </c:if>
 <c:if test="${booking != null}">
     <table class="table">

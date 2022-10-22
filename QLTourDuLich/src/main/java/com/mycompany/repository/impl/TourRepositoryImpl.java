@@ -98,7 +98,11 @@ public class TourRepositoryImpl implements TourRepository {
     public boolean delTour(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.delete(id);
+            Tour tour = new Tour();
+            tour.setIdTour(id);
+//            getCurrentSession().delete(tour);
+            session.delete(tour);
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();

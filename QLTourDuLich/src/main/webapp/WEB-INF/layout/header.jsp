@@ -8,16 +8,16 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm" style="background-color: whitesmoke">
     <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)">Tour Service</a>
+        <a class="navbar-brand" href="javascript:void(0)">&#9992; Tour Service</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/"/>">&#9969; Trang chủ</a>
+                    <a class="nav-link" href="<c:url value="/"/>">Về trang chủ</a>
                 </li>
                 <c:forEach items="${type}" var="t">
 
@@ -31,7 +31,7 @@
                 </c:forEach>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/login"/>">&#9968; Đăng nhập</a>
+                        <a class="nav-link" href="<c:url value="/login"/>">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/register"/>">Đăng ký</a>
@@ -66,7 +66,7 @@
                 </sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thong ke doanh thu</a>
+                        <a class="nav-link" href="<c:url value="/admin/revenue-stats"/>">Thống kê doanh thu</a>
                     </li>
                 </sec:authorize>
 

@@ -6,7 +6,49 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 19 thg 10, 2022, 23:38:13
     Author     : Qhuy
 */
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 footer {
      min-height: calc(100vh-50px)
  }
+ .navbar{
+    display: flex;
+    align-items: center;
+    padding: 28px;
+    min-height: 80px;
+}
+
+
+nav{
+    text-align: right;
+    flex: 1;
+}
+/*nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 28px;
+}
+
+nav-item{
+    
+}*/
+
+/*--under ruler-*/
+nav ul li::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: orange;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+nav ul li:hover::after{
+    width: 100%;
+}

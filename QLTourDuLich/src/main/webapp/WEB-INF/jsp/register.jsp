@@ -8,7 +8,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1>Dang ky tai khoan</h1>
+<h1>Đăng ký</h1>
 
 <c:if test="${errMsg != null}">
     <p>${errMsg}</p>
@@ -45,7 +45,7 @@
         <label for="confirm-password">Xác nhận mật khẩu</label>
         <form:input type="password" id="confirm-password" path="confirmPassword" class="form-control"/>
     </div>
-    
+    <br>
     <div class="form-group">
         <input type="submit" value="Đăng ký" class="btn btn-danger"/>
     </div>

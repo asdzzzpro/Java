@@ -3,7 +3,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<h1 class="text-primary text-center">Du Lịch Đất Việt</h1>
+<div class="banner">
+    <h1 style="position: absolute; top: 310px; margin-left: 27%; color: whitesmoke; font-size: 50px"><strong>Welcome to Việt Nam</strong></h1>
+    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1920/Countries/vbljj3ol8pzwmxoru7bo.webp" style="width:1200px; height: 450px; display: block; margin: auto" alt="Hero Banner">
+</div>
+
+<br>
+
 
 <c:url value="/" var="action" />
 <form action="${action}" class="d-flex" style="padding: 5px">
@@ -12,7 +18,7 @@
 </form>
 
 <form action="${action}" class="d-flex" style="padding: 5px">
-    <input class="form-control me-3" type="text" name="adultPrice" placeholder="Giá người lớn từ ...">
+    <input class="form-control me-3" type="text" name="adultPrice" placeholder="Giá từ ....">
     <button type="submit" class="btn btn-primary" type="button">Tìm kiếm</button>
 </form>
 
@@ -21,9 +27,9 @@
     <ul class="pagination">
         <c:forEach begin="1" end="${Math.ceil(count/8)}" var="i">
             <li class="page-item"><a class="page-link" href="<c:url value="/"/>?page=${i}">${i}</a></li>
-        </c:forEach>
-        
-        
+            </c:forEach>
+
+
 
     </ul>
 </div>
@@ -40,7 +46,7 @@
                     <p class="card-text">
                         <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${t.adultprice}" /> VND/Khách
                     </p>
-                    
+
                     <a href="<c:url value="/tours/${t.idTour}" />" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>
